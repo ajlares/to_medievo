@@ -260,6 +260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b475808061efcf94fb3f985d33421ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  height: 10
+  width: 10
   mapPeefabs:
   - {fileID: 8180486338537791715, guid: 961a06ac0fa580d4dab63e60377997ef, type: 3}
   - {fileID: 8180486338537791715, guid: 961a06ac0fa580d4dab63e60377997ef, type: 3}
@@ -267,8 +269,9 @@ MonoBehaviour:
   - {fileID: 8180486338537791715, guid: b1eb6501281bcdd4f9db7085d0a0c412, type: 3}
   - {fileID: 8180486338537791715, guid: b1eb6501281bcdd4f9db7085d0a0c412, type: 3}
   - {fileID: 8180486338537791715, guid: f13c59edea2b9ad469f2f5d4953fe5a9, type: 3}
-  height: 10
-  width: 10
+  castles:
+  - {fileID: 3745435236885617256, guid: d199d436a44848746b8dccbc9dd8a79c, type: 3}
+  - {fileID: 3745435236885617256, guid: 535d1064270bb7d4bb79e94cdeb694a3, type: 3}
 --- !u!1 &778976157
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,8 +357,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778976157}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.18679006, y: 0.72033703, z: -0.21245807, w: -0.6333132}
-  m_LocalPosition: {x: 8.381113, y: 6.575251, z: 2.4553983}
+  m_LocalRotation: {x: -0.31076723, y: -0.3278579, z: 0.11516919, w: -0.8846858}
+  m_LocalPosition: {x: -3.0850897, y: 6.8822107, z: -2.3303075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

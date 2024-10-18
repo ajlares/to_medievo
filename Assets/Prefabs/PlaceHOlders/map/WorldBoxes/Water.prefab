@@ -43,9 +43,10 @@ GameObject:
   - component: {fileID: 856804403638480567}
   - component: {fileID: 5417853175839554908}
   - component: {fileID: 3714407373726060547}
+  - component: {fileID: -141778125319779457}
   m_Layer: 0
-  m_Name: Stone
-  m_TagString: Untagged
+  m_Name: Water
+  m_TagString: MapCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +95,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb298676e785b874fb2b018c00dc5b9a, type: 2}
+  - {fileID: 2100000, guid: 6da11776a940a834ab900c41e557b3b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,3 +138,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-141778125319779457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8180486338537791715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8965f96c212c4c64b903ed41f467ea7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  internalValeu: 0
+  isEmpty: 1
+  obstacle: {fileID: 0}
