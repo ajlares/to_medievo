@@ -10,6 +10,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] private int width;
     // lista de los prefabs del mapa
     [SerializeField] private List<GameObject> mapPeefabs;
+    [SerializeField] private List<GameObject> castles;
 
 
     private void Start() 
@@ -27,6 +28,10 @@ public class MapManager : MonoBehaviour
             {
                 int randomRange = Random.Range(0,6);
                 GameObject boxMapTemp = Instantiate(mapPeefabs[randomRange],new Vector3(worldPosx , .5f , worldPosy), Quaternion.identity);
+                if(randomRange !=5 && Random.Range(0,4)==1)
+                {
+                    boxMapTemp.GetComponent<BoxController>().ObstacleSpawn();
+                }
                 worldPosx++;
                 
             }

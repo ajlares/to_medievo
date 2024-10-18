@@ -151,4 +151,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   internalValeu: 0
-  isEmpty: 0
+  isEmpty: 1
+  obstacle: {fileID: 3745435236885617256, guid: d4808e2c1057f94428407b81296b380c, type: 3}
