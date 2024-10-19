@@ -29,7 +29,6 @@ public class BoxController : MonoBehaviour
     public void ObstacleSpawn()
     {
         //spawnea un obstaculo
-        Debug.Log("se genera un obstaculo");
         if(isEmpty)
         {
             Instantiate(obstacle, transform);
