@@ -1,6 +1,5 @@
 
 using System.Collections.Generic;
-using System.Data.Common;
 using UnityEngine;
 
 // script enfocado en la generacion del mundo en un grid de de tamaño variable 
