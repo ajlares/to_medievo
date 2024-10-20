@@ -5,6 +5,7 @@ public class BoxController : MonoBehaviour
     [SerializeField] private int internalValeu;
     [SerializeField] private bool isEmpty;
     [SerializeField] private GameObject obstacle;
+    [SerializeField] int managerListValeu;
 
     public int InternalValeu
     {
@@ -25,6 +26,10 @@ public class BoxController : MonoBehaviour
             isEmpty = value;
         }
     }
+    private void Start() 
+    {
+       managerListValeu = MapManager.instance.addlistCube(gameObject);
+    }
 
     public void ObstacleSpawn()
     {
@@ -39,7 +44,6 @@ public class BoxController : MonoBehaviour
     public void CastleCreate(GameObject castle)
     {
         //spawnea un castillo
-        Debug.Log("se genera un obstaculo");
             Instantiate(castle, transform);
             isEmpty = false;
     }
