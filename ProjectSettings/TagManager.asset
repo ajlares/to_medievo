@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - MapCube
+  - Unit
   layers:
   - Default
   - TransparentFX
