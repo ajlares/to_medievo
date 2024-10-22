@@ -30,7 +30,7 @@ public class EventManager : MonoBehaviour
         allyEventMaxTurns = Random.Range(0,6);
         allyEventTurns = 0;
         enemyEventMaxTurns = Random.Range(0,6);
-        enemyEventTurns =0;
+        enemyEventTurns = 0;
     }
     public void turnUpdate()
     {
@@ -44,14 +44,20 @@ public class EventManager : MonoBehaviour
         if(naturalDisasterMaxTurns == naturalDisasterTurns)
         {
             Disaster();
+            naturalDisasterMaxTurns = Random.Range(1,6);
+            naturalDisasterTurns = 0;
         }
-        else if(allyEventMaxTurns == allyEventTurns)
+        if(allyEventMaxTurns == allyEventTurns)
         {
             AllyCastle.instance.UnitsToUse = 1;
+            allyEventMaxTurns = Random.Range(1,6);
+            allyEventTurns = 0;
         }
-        else if(enemyEventMaxTurns == enemyEventTurns)
+        if(enemyEventMaxTurns == enemyEventTurns)
         {
             EnemyCastle.instance.UnitsToUse = 1;
+            enemyEventMaxTurns = Random.Range(1,6);
+            enemyEventTurns = 0;
         }
     }
     private void Disaster()
