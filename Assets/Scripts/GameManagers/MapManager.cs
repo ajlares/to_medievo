@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +12,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] private List<GameObject> castles;
     [SerializeField] private List<GameObject> tilemap;
 
-
+    #region intance
     public static MapManager instance;
     private void Awake() 
     {
@@ -26,12 +25,14 @@ public class MapManager : MonoBehaviour
             Destroy( this);
         }
     }
+    #endregion
     private void Start() 
     {
-        wordGenerate();
     }
 
-    private void wordGenerate()
+    #region world Generate
+    // region enfocada en la generacion del mundo
+    public void worldGenerate()
     {
         float worldPosx = 0;
         float worldPosy = 0;
@@ -39,7 +40,7 @@ public class MapManager : MonoBehaviour
        { 
             for(int j = 0 ; j < height ; j++)
             {
-                int randomRange = Random.Range(0,6);
+                int randomRange = UnityEngine.Random.Range(0,6);
                 if(i == 0 && j == 0)
                 {
                     GameObject boxMapTemp = Instantiate(mapPeefabs[4],new Vector3(worldPosx , .5f , worldPosy), Quaternion.identity);
@@ -53,7 +54,7 @@ public class MapManager : MonoBehaviour
                 else
                 {
                     GameObject boxMapTemp = Instantiate(mapPeefabs[randomRange],new Vector3(worldPosx , .5f , worldPosy), Quaternion.identity);
-                    if(randomRange !=5 && Random.Range(0,4)==1)
+                    if(randomRange !=5 && UnityEngine.Random.Range(0,4)==1)
                     {
                         boxMapTemp.GetComponent<BoxController>().ObstacleSpawn();
                     }
@@ -70,4 +71,5 @@ public class MapManager : MonoBehaviour
         tilemap.Add(valeu);
         return tilemap.Count - 1;
     }
+    #endregion
 }
