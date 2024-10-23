@@ -54,4 +54,8 @@ public class GameManager : MonoBehaviour
         tilemap.Add(valeu);
         return tilemap.Count - 1;
     }
+    public GameObject getCube(int valeu)
+    {
+        return tilemap[valeu];
+    }
 }

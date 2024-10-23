@@ -62,6 +62,8 @@ public class EventManager : MonoBehaviour
     }
     private void Disaster()
     {
-
+        int temMapBoxes = MapManager.instance.height * MapManager.instance.width;
+        GameObject boxSelected = GameManager.instance.getCube(temMapBoxes);
+        Debug.Log(boxSelected);
     }
 }
