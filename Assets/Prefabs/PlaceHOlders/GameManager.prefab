@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3247302840039108371}
   - component: {fileID: 3583080758765990671}
   m_Layer: 0
-  m_Name: MapManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37b87118c2f42843bc12db55699b74f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnCount: 0
+  allyUnits: []
+  enemyUnits: []
 --- !u!114 &3247302840039108371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,3 +86,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb44e3aa90607564782cffc67aad379f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  naturalDisasterMaxTurns: 0
+  naturalDisasterTurns: 0
+  allyEventMaxTurns: 0
+  allyEventTurns: 0
+  enemyEventMaxTurns: 0
+  enemyEventTurns: 0

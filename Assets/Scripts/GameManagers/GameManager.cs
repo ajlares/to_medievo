@@ -1,8 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private int turnCount;
+    [SerializeField] private List<GameObject> allyUnits;
+    [SerializeField] private List<GameObject> enemyUnits;
     #region intance
     public static GameManager instance;
     private void Awake() 
@@ -37,5 +40,10 @@ public class GameManager : MonoBehaviour
         EventManager.instance.turnUpdate();
         //cambia el turno
         turnCount++;
+    }
+    
+    private void canSelect()
+    {
+
     }
 }
