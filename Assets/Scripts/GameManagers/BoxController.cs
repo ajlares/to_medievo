@@ -28,7 +28,7 @@ public class BoxController : MonoBehaviour
     }
     private void Start() 
     {
-       managerListValeu = MapManager.instance.addlistCube(gameObject);
+       managerListValeu = GameManager.instance.addlistCube(gameObject);
     }
 
     public void ObstacleSpawn()

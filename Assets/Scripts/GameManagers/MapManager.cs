@@ -5,12 +5,11 @@ using UnityEngine;
 public class MapManager : MonoBehaviour
 {
         // tamañano del mapa
-    [SerializeField] private int height;
-    [SerializeField] private int width;
+    [SerializeField] public int height;
+    [SerializeField] public int width;
     // lista de los prefabs del mapa
     [SerializeField] private List<GameObject> mapPeefabs;
     [SerializeField] private List<GameObject> castles;
-    [SerializeField] private List<GameObject> tilemap;
 
     #region intance
     public static MapManager instance;
@@ -64,12 +63,6 @@ public class MapManager : MonoBehaviour
             worldPosy++;
             worldPosx=0;
        }
-    }
-
-    public int addlistCube(GameObject valeu)
-    {
-        tilemap.Add(valeu);
-        return tilemap.Count - 1;
     }
     #endregion
 }
