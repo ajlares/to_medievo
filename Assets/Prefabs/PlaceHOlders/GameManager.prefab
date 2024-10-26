@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3552712019139864658}
+  - component: {fileID: 8330057084780347846}
   - component: {fileID: 3247302840039108371}
+  - component: {fileID: 3583080758765990671}
   m_Layer: 0
-  m_Name: MapManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,6 +34,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8330057084780347846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155525684056528039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37b87118c2f42843bc12db55699b74f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnCount: 0
+  allyUnits: []
+  enemyUnits: []
 --- !u!114 &3247302840039108371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,3 +73,22 @@ MonoBehaviour:
   castles:
   - {fileID: 3745435236885617256, guid: d199d436a44848746b8dccbc9dd8a79c, type: 3}
   - {fileID: 3745435236885617256, guid: 535d1064270bb7d4bb79e94cdeb694a3, type: 3}
+  tilemap: []
+--- !u!114 &3583080758765990671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155525684056528039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb44e3aa90607564782cffc67aad379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  naturalDisasterMaxTurns: 0
+  naturalDisasterTurns: 0
+  allyEventMaxTurns: 0
+  allyEventTurns: 0
+  enemyEventMaxTurns: 0
+  enemyEventTurns: 0
