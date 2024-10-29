@@ -56,6 +56,13 @@ public class GameManager : MonoBehaviour
     }
     public GameObject getCube(int valeu)
     {
-        return tilemap[valeu];
+        if(valeu < tilemap.Count)
+        {
+            return tilemap[valeu];
+        }
+        else
+        {
+        return null;
+        }
     }
 }

@@ -2,16 +2,15 @@ using UnityEngine;
 
 public class BoxController : MonoBehaviour
 {
-    [SerializeField] private int internalValeu;
     [SerializeField] private bool isEmpty;
     [SerializeField] private GameObject obstacle;
     [SerializeField] int managerListValeu;
 
-    public int InternalValeu
+    public int ManagerListValeu
     {
         get
         {
-            return internalValeu;
+            return managerListValeu;
         }
     }
 
