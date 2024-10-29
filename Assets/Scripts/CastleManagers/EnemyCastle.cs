@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyCastle : MonoBehaviour
 {
     [SerializeField] private int unitsToUse;
+    [SerializeField] private List<GameObject> units;
     public int UnitsToUse
     {
         get
@@ -29,4 +31,9 @@ public class EnemyCastle : MonoBehaviour
         }
     }
     #endregion
+    public void instanceUnit(GameObject spaw)
+    {
+        int randomUnit = Random.Range(0,units.Count);
+        Instantiate(units[randomUnit],spaw.transform.position,Quaternion.identity);
+    }
 }

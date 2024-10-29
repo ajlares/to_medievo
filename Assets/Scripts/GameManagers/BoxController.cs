@@ -2,16 +2,15 @@ using UnityEngine;
 
 public class BoxController : MonoBehaviour
 {
-    [SerializeField] private int internalValeu;
     [SerializeField] private bool isEmpty;
     [SerializeField] private GameObject obstacle;
     [SerializeField] int managerListValeu;
 
-    public int InternalValeu
+    public int ManagerListValeu
     {
         get
         {
-            return internalValeu;
+            return managerListValeu;
         }
     }
 
@@ -28,7 +27,7 @@ public class BoxController : MonoBehaviour
     }
     private void Start() 
     {
-       managerListValeu = MapManager.instance.addlistCube(gameObject);
+       managerListValeu = GameManager.instance.addlistCube(gameObject);
     }
 
     public void ObstacleSpawn()

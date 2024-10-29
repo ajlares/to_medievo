@@ -25,11 +25,11 @@ public class EventManager : MonoBehaviour
     #endregion
     private void Start()
     {
-        naturalDisasterMaxTurns = Random.Range(0,6);
+        naturalDisasterMaxTurns = Random.Range(1,6);
         naturalDisasterTurns = 0;
-        allyEventMaxTurns = Random.Range(0,6);
+        allyEventMaxTurns = Random.Range(1,6);
         allyEventTurns = 0;
-        enemyEventMaxTurns = Random.Range(0,6);
+        enemyEventMaxTurns = Random.Range(1,6);
         enemyEventTurns = 0;
     }
     public void turnUpdate()
@@ -43,7 +43,7 @@ public class EventManager : MonoBehaviour
     {
         if(naturalDisasterMaxTurns == naturalDisasterTurns)
         {
-            Disaster();
+            EventsCreates.instance.SelectBox();
             naturalDisasterMaxTurns = Random.Range(1,6);
             naturalDisasterTurns = 0;
         }
@@ -59,9 +59,5 @@ public class EventManager : MonoBehaviour
             enemyEventMaxTurns = Random.Range(1,6);
             enemyEventTurns = 0;
         }
-    }
-    private void Disaster()
-    {
-
     }
 }
