@@ -1,10 +1,40 @@
+using System.Collections.Generic;
+using UnityEngine;
 
-public class UnitController : StateMachineController 
+public class UnitController : MonoBehaviour
 {
-    public Unit unit;
+    private UnitStateManager currentSelectedUnit;
 
-    public UnitController(Unit _unit)
+    public void SelectUnit(UnitStateManager newUnit)
     {
-        this.unit = _unit;
+        if (currentSelectedUnit != null && currentSelectedUnit != newUnit)
+        {
+            currentSelectedUnit.ChangeState(new UnitIdleState());
+        }
+
+        currentSelectedUnit = newUnit;
+
+        if (currentSelectedUnit != null)
+        {
+            currentSelectedUnit.ChangeState(new UnitSelectedState());
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                UnitStateManager clickedUnit = hit.collider.GetComponent<UnitStateManager>();
+                if (clickedUnit != null)
+                {
+                    SelectUnit(clickedUnit);
+                }
+            }
+        }
     }
 }
