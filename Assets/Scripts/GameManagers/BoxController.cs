@@ -5,6 +5,7 @@ public class BoxController : MonoBehaviour
     [SerializeField] private bool isEmpty;
     [SerializeField] private GameObject obstacle;
     [SerializeField] int managerListValeu;
+    [SerializeField] GameObject unitHere;
 
     public int ManagerListValeu
     {
@@ -23,6 +24,13 @@ public class BoxController : MonoBehaviour
         set
         {
             isEmpty = value;
+        }
+    }
+    public GameObject UnitHere
+    {
+        get
+        {
+            return unitHere;
         }
     }
     private void Start() 
@@ -45,5 +53,9 @@ public class BoxController : MonoBehaviour
         //spawnea un castillo
             Instantiate(castle, transform);
             isEmpty = false;
+    }
+    public void saveObject()
+    {
+        
     }
 }
