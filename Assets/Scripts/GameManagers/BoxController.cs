@@ -6,6 +6,7 @@ public class BoxController : MonoBehaviour
     [SerializeField] private GameObject obstacle;
     [SerializeField] int managerListValeu;
     [SerializeField] GameObject unitHere;
+    [SerializeField] public GameObject mapWayPoint;
 
     public int ManagerListValeu
     {
