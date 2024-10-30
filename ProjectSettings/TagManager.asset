@@ -7,8 +7,8 @@ TagManager:
   - Obstacle
   - MapCube
   - Unit
-  - EnemieBeta
-  - Enemy
+  - blue
+  - Red
   layers:
   - Default
   - TransparentFX
