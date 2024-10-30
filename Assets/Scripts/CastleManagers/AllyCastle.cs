@@ -5,6 +5,8 @@ public class AllyCastle : MonoBehaviour
 {
     [SerializeField] private int unitsToUse;
     [SerializeField] private List<GameObject> units;
+    [SerializeField] private int maxLife;
+    [SerializeField] private int life;
     public int UnitsToUse
     {
         get
