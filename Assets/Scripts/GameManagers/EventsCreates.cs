@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class EventsCreates : MonoBehaviour
 {
-        #region intance
+    
+    #region intance
     public static EventsCreates instance;
     private void Awake() 
     {
