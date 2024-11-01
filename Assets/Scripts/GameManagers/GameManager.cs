@@ -1,8 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private int turnCount;
+
+    [SerializeField] private List<GameObject> allyUnits;
+    [SerializeField] private List<GameObject> enemyUnits;
+    [SerializeField] private List<GameObject> tilemap;
     #region intance
     public static GameManager instance;
     private void Awake() 
@@ -37,5 +42,27 @@ public class GameManager : MonoBehaviour
         EventManager.instance.turnUpdate();
         //cambia el turno
         turnCount++;
+    }
+    
+    private void canSelect()
+    {
+
+    }
+    
+    public int addlistCube(GameObject valeu)
+    {
+        tilemap.Add(valeu);
+        return tilemap.Count - 1;
+    }
+    public GameObject getCube(int valeu)
+    {
+        if(valeu < tilemap.Count)
+        {
+            return tilemap[valeu];
+        }
+        else
+        {
+        return null;
+        }
     }
 }
