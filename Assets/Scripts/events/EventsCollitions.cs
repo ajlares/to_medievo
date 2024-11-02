@@ -23,6 +23,14 @@ public class EventsCollitions : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log("colision");  
+        if(other.gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(other.gameObject);
+        }
+        if(other.gameObject.CompareTag("MapCube"))
+        {
+            other.gameObject.GetComponent<BoxController>().saveObject(gameObject);
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        }
     }
 }
