@@ -18,7 +18,13 @@ public class AllyCastle : MonoBehaviour
             unitsToUse += value;
         }
     }
-
+    public int Life
+    {
+        get
+        {
+            return life;
+        }
+    }
         #region intance
     public static AllyCastle instance;
     private void Awake() 

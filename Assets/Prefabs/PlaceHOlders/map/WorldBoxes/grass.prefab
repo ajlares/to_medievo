@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8965f96c212c4c64b903ed41f467ea7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  internalValeu: 0
   isEmpty: 1
   obstacle: {fileID: 3745435236885617256, guid: 68ced043c4762714ea0c76345b3a169f, type: 3}
+  managerListValeu: 0
+  unitHere: {fileID: 0}
+  mapWayPoint: {fileID: 6184868376051998591}
