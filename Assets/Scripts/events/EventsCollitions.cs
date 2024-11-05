@@ -21,16 +21,15 @@ public class EventsCollitions : MonoBehaviour
         yield return null;
     }
 
-    void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other) 
     {
-        if(other.gameObject.CompareTag("Obstacle"))
+        if(other.gameObject.CompareTag("Obstacle")||other.gameObject.CompareTag("blue")||other.gameObject.CompareTag("Red")||other.gameObject.CompareTag("meteorite"))
         {
             Destroy(other.gameObject);
         }
         if(other.gameObject.CompareTag("MapCube"))
         {
             other.gameObject.GetComponent<BoxController>().saveObject(gameObject);
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 }
