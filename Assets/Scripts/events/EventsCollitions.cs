@@ -23,13 +23,14 @@ public class EventsCollitions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.gameObject.CompareTag("Obstacle")||other.gameObject.CompareTag("blue")||other.gameObject.CompareTag("Red")||other.gameObject.CompareTag("meteorite"))
+        if(other.gameObject.CompareTag("Obstacle")||other.gameObject.CompareTag("blue")||other.gameObject.CompareTag("Red")||other.gameObject.CompareTag("meteriorite"))
         {
             Destroy(other.gameObject);
         }
         if(other.gameObject.CompareTag("MapCube"))
         {
             other.gameObject.GetComponent<BoxController>().saveObject(gameObject);
+            GetComponent<SphereCollider>().enabled= false;
         }
     }
 }
