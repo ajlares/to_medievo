@@ -4,7 +4,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private int turnCount;
-
     [SerializeField] private List<GameObject> allyUnits;
     [SerializeField] private List<GameObject> enemyUnits;
     [SerializeField] private List<GameObject> tilemap;

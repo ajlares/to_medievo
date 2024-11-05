@@ -9,6 +9,7 @@ TagManager:
   - Unit
   - blue
   - Red
+  - meteriorite
   layers:
   - Default
   - TransparentFX

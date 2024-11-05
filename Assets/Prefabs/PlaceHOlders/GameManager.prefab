@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8330057084780347846}
   - component: {fileID: 3247302840039108371}
   - component: {fileID: 3583080758765990671}
+  - component: {fileID: 2890490919746706035}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   turnCount: 0
   allyUnits: []
   enemyUnits: []
+  tilemap: []
 --- !u!114 &3247302840039108371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +75,6 @@ MonoBehaviour:
   castles:
   - {fileID: 3745435236885617256, guid: d199d436a44848746b8dccbc9dd8a79c, type: 3}
   - {fileID: 3745435236885617256, guid: 535d1064270bb7d4bb79e94cdeb694a3, type: 3}
-  tilemap: []
 --- !u!114 &3583080758765990671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,3 +93,16 @@ MonoBehaviour:
   allyEventTurns: 0
   enemyEventMaxTurns: 0
   enemyEventTurns: 0
+--- !u!114 &2890490919746706035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155525684056528039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a1b9c09ab4e69489c45c070723b1c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stone: {fileID: 3468566368279606857, guid: c9fa3e42cea5b964bbdac5c5ab44ba88, type: 3}
