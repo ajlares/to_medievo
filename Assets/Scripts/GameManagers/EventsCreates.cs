@@ -23,7 +23,7 @@ public class EventsCreates : MonoBehaviour
     public void SelectBox()
     {
         int totalTiles = MapManager.instance.height * MapManager.instance.width;
-        int tempTileSelect = Random.Range(0, totalTiles); 
+        int tempTileSelect = Random.Range(1, totalTiles-1); 
         GameObject boxSelected = GameManager.instance.getCube(tempTileSelect);
         if(boxSelected != null)
         {
