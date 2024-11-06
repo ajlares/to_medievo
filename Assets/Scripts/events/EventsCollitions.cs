@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EventsCollitions : MonoBehaviour
 {
+    [SerializeField] private GameObject smoke;
     private void Start() 
     {
         StartCoroutine(movement());
@@ -30,6 +31,7 @@ public class EventsCollitions : MonoBehaviour
         if(other.gameObject.CompareTag("MapCube"))
         {
             other.gameObject.GetComponent<BoxController>().saveObject(gameObject);
+            Instantiate(smoke,other.gameObject.GetComponent<BoxController>().mapWayPoint.transform);
             GetComponent<SphereCollider>().enabled= false;
         }
     }
