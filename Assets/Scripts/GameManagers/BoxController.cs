@@ -5,7 +5,7 @@ public class BoxController : MonoBehaviour
     [SerializeField] private bool isEmpty;
     [SerializeField] private GameObject obstacle;
     [SerializeField] int managerListValeu;
-    [SerializeField] GameObject unitHere;
+    [SerializeField] GameObject objectHere;
     [SerializeField] public GameObject mapWayPoint;
 
     public int ManagerListValeu
@@ -31,7 +31,7 @@ public class BoxController : MonoBehaviour
     {
         get
         {
-            return unitHere;
+            return objectHere;
         }
     }
     private void Start() 
@@ -55,8 +55,9 @@ public class BoxController : MonoBehaviour
             Instantiate(castle, transform);
             isEmpty = false;
     }
-    public void saveObject()
+    public void saveObject(GameObject ObjectToSave)
     {
-        
+        objectHere = ObjectToSave;
+        isEmpty = false;
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EventsCreates : MonoBehaviour
 {
+    [SerializeField] private GameObject stone;
     
     #region intance
     public static EventsCreates instance;
@@ -32,13 +33,6 @@ public class EventsCreates : MonoBehaviour
 
     private void eventSelect(GameObject boxSelected)
     {
-        if(boxSelected.GetComponent<BoxController>().IsEmpty)
-        {
-            Debug.Log("esta vacia vamos a hacer algo");
-        }
-        else
-        {
-            Debug.Log("la caja tiene algo vamos a descubirilos");
-        }
+        Instantiate(stone,boxSelected.GetComponent<BoxController>().mapWayPoint.transform);
     }
 }
