@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBetaStats : MonoBehaviour
 {
     public int maxHealth = 100;
-    private int health;
+    public int health;
     void Start()
     {
         health = maxHealth;

@@ -17,6 +17,8 @@ public class UnitStateManager : MonoBehaviour
     public bool canMove = true, canAttack = true;
     private CameraController cameraController;
 
+    public GameObject tower;
+
     void Start()
     {
         cameraController = FindObjectOfType<CameraController>();

@@ -1,18 +1,19 @@
-public class Archer : CharactersBase
+using UnityEngine;
+public class Builder : CharactersBase
 {
     protected override void Start()
     {
         base.Start();
-        characterName = "Archer";
-        maxHealth = 75;
+        characterName = "Builder";
+        maxHealth = 1;
         health = maxHealth;
-        movementRange = 2;
-        attackRange = 3;
-        attackPower = 15;
+        movementRange = 3;
+        attackRange = 0;
+        attackPower = 0;
         defenseBonus = 0;
 
         MovementPattern = new CrossPatternM();
-        AttackPattern = new CirclePatternA();
+        AttackPattern = new CirclePatternCl();
     }
 
     public override void SpecialAbility()

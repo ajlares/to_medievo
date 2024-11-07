@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ObjectDetector : MonoBehaviour
 {
-    [SerializeField] private string targetEnemy = "Enemy";  
-    [SerializeField] private string targetUnit = "Unit";    
+    [SerializeField] private string targetEnemy = "Red";  
+    [SerializeField] private string targetUnit = "blue";    
     [SerializeField] private bool isUnit;
     [SerializeField] private bool isEnemy; 
     public BoxController boxController;  
     private bool isOccupied = false;
     private GameObject detectedEnemy;
+    private GameObject detectedUnit;
 
     public bool IsOccupied => isOccupied;
 
@@ -27,6 +28,7 @@ public class ObjectDetector : MonoBehaviour
     }
 
     public GameObject DetectedEnemy => detectedEnemy;
+    public GameObject DetectedUnit => detectedUnit;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,6 +47,7 @@ public class ObjectDetector : MonoBehaviour
             boxController.IsEmpty = false;  
             isUnit = true; 
             isEnemy = false; 
+            detectedUnit = other.gameObject;
             Debug.Log($"¡Objeto detectado: {other.name} con tag {other.tag}!");
         }
     }

@@ -158,10 +158,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitsToUse: 2
   units:
-  - {fileID: 2112420697716231519, guid: 5269fabed5e744547bec898d5b643e14, type: 3}
-  - {fileID: 2112420697716231519, guid: 5269fabed5e744547bec898d5b643e14, type: 3}
-  - {fileID: 2112420697716231519, guid: 5269fabed5e744547bec898d5b643e14, type: 3}
-  - {fileID: 2112420697716231519, guid: 5269fabed5e744547bec898d5b643e14, type: 3}
+  - {fileID: 599959906131181399, guid: 43392fd3761482d4ba93ee06a8809004, type: 3}
+  - {fileID: 5329085920150738787, guid: fc258cec91de1014ba3664d98a2d5aec, type: 3}
+  - {fileID: 6064732978148507675, guid: fecb02e7b832ab645ab684ef0342804b, type: 3}
+  - {fileID: 6660459514211366657, guid: 08a25ca5333367144b55c8352afbe3d5, type: 3}
   maxLife: 10
   life: 10
 --- !u!1 &3869597283188199470

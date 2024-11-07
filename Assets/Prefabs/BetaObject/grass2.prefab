@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7585799286424362890}
   - component: {fileID: 7235402903405455194}
   - component: {fileID: 4662347311046568894}
-  - component: {fileID: 8119644194701347096}
   m_Layer: 0
   m_Name: grass2
   m_TagString: MapCube
@@ -107,22 +106,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8119644194701347096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2689076861863987681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8965f96c212c4c64b903ed41f467ea7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  internalValeu: 0
-  isEmpty: 1
-  obstacle: {fileID: 3745435236885617256, guid: 68ced043c4762714ea0c76345b3a169f, type: 3}
-  managerListValeu: 0
 --- !u!1 &5238052875446398885
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetEnemy: Enemy
   targetUnit: Unit
-  boxController: {fileID: 8119644194701347096}
+  isUnit: 0
+  isEnemy: 0
+  boxController: {fileID: 0}
 --- !u!135 &1266366735359359286
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class CirclePatternA : MovementPattern
+public class CirclePatternCl : MovementPattern
 {
     public override List<GameObject> GetValidCubes(GameObject unit, int range)
     {
@@ -18,7 +17,7 @@ public class CirclePatternA : MovementPattern
             if (distance <= range)
             {
                 BoxController boxController = cube.GetComponent<BoxController>();
-                if (boxController == null || boxController.IsEmpty || HasEnemyInCube(cube))
+                if (boxController == null || boxController.IsEmpty || HasUnitInCube(cube))
                 {
                     validCubes.Add(cube);
                 }
@@ -27,11 +26,10 @@ public class CirclePatternA : MovementPattern
         return validCubes;
     }   
 
-    // Método que verifica si hay un enemigo en el ObjectDetector dentro del cubo
-    private bool HasEnemyInCube(GameObject cube)
+    // Método que verifica si hay un aliado en el ObjectDetector dentro del cubo
+    private bool HasUnitInCube(GameObject cube)
     {
         ObjectDetector objectDetector = cube.GetComponentInChildren<ObjectDetector>();
-        return objectDetector != null && objectDetector.IsEnemy;
+        return objectDetector != null && objectDetector.IsUnit;
     }
 }
-
