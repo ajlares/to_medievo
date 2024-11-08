@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EventsCollitions : MonoBehaviour
 {
+    [SerializeField] private GameObject smoke;
     private void Start() 
     {
         StartCoroutine(movement());
@@ -21,16 +22,17 @@ public class EventsCollitions : MonoBehaviour
         yield return null;
     }
 
-    void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other) 
     {
-        if(other.gameObject.CompareTag("Obstacle"))
+        if(other.gameObject.CompareTag("Obstacle")||other.gameObject.CompareTag("blue")||other.gameObject.CompareTag("Red")||other.gameObject.CompareTag("meteriorite"))
         {
             Destroy(other.gameObject);
         }
         if(other.gameObject.CompareTag("MapCube"))
         {
             other.gameObject.GetComponent<BoxController>().saveObject(gameObject);
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            Instantiate(smoke,other.gameObject.GetComponent<BoxController>().mapWayPoint.transform);
+            GetComponent<SphereCollider>().enabled= false;
         }
     }
 }

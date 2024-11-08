@@ -44,20 +44,24 @@ public class BoxController : MonoBehaviour
         //spawnea un obstaculo
         if(isEmpty)
         {
-            Instantiate(obstacle, transform);
+            Instantiate(obstacle, mapWayPoint.transform);
             isEmpty = false;
         }
-        //Instantiate(mapPeefabs[randomRange],new Vector3(worldPosx , .5f , worldPosy), Quaternion.identity);
     }
     public void CastleCreate(GameObject castle)
     {
         //spawnea un castillo
-            Instantiate(castle, transform);
-            isEmpty = false;
+        Instantiate(castle, mapWayPoint.transform);
+        isEmpty = false;
     }
     public void saveObject(GameObject ObjectToSave)
     {
         objectHere = ObjectToSave;
         isEmpty = false;
+    }
+    public void removeObject()
+    {
+        objectHere = null;
+        isEmpty = true;
     }
 }
