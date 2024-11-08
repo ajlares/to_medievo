@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private int turnCount;
     [SerializeField] private List<GameObject> allyUnits;
-    [SerializeField] private List<GameObject> enemyUnits;
+    [SerializeField] public List<GameObject> enemyUnits;
     [SerializeField] private List<GameObject> tilemap;
     #region intance
     public static GameManager instance;
@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
         EventManager.instance.turnUpdate();
         //cambia el turno
         turnCount++;
+        // hace los seteos de turno respectivos
+        IAGeneralManager.instance.Newturn();
     }
     
     private void canSelect()
