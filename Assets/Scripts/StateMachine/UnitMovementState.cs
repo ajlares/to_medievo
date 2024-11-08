@@ -91,7 +91,6 @@ public class UnitMovementState : UnitBaseState
                     originalMaterials[mapCube] = renderer.material;
                 }
 
-                // Cambia el material según el estado de highlight
                 renderer.material = highlight ? outlineMaterial : originalMaterials.GetValueOrDefault(mapCube, renderer.material);
             }
             else

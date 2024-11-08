@@ -41,7 +41,11 @@ public class AllyCastle : MonoBehaviour
     #endregion
     public void instanceUnit(GameObject spaw)
     {
-        int randomUnit = Random.Range(0,units.Count);
-        Instantiate(units[randomUnit],spaw.transform.position,Quaternion.identity);
+        int randomUnit = Random.Range(0, units.Count);
+
+        Vector3 spawnPosition = spaw.transform.position;
+        spawnPosition.y = 1.5f;
+        
+        Instantiate(units[randomUnit], spawnPosition, Quaternion.identity);
     }
 }

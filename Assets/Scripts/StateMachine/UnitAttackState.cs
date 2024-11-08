@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -41,9 +42,20 @@ public class UnitAttackState : UnitBaseState
 
     public override void UpdateState(UnitStateManager unit)
     {
-        if (!unit.canAttack) return;
+        CharactersBase character = unit.GetComponent<CharactersBase>();
 
-        if (Input.GetButtonDown("Fire1"))
+        if(character is Builder && Input.GetButtonDown("Fire2"))
+        {
+            UnityEngine.Object.Destroy(unit.gameObject);
+
+            UnityEngine.Object.Instantiate(unit.tower, unit.transform.position, Quaternion.identity);
+
+            UnitBaseState newState = new UnitIdleState();
+            unit.ChangeState(newState);
+
+            return;
+        }
+        else if (character is Cleric && Input.GetButtonDown("Fire2"))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -53,27 +65,70 @@ public class UnitAttackState : UnitBaseState
                 GameObject clickedObject = hit.collider.gameObject;
                 BoxController boxController = clickedObject.GetComponent<BoxController>();
 
-                // Verificar si está dentro del rango y la casilla es válida
                 if (highlightedMapCubes.Contains(clickedObject) && boxController != null)
                 {
-                    // Buscar el detector de enemigos
                     ObjectDetector objectDetector = clickedObject.GetComponentInChildren<ObjectDetector>();
 
-                    // Comprobar si el objeto es un enemigo
+                    if (objectDetector != null && objectDetector.IsUnit)
+                    {
+                        GameObject united = objectDetector.DetectedUnit;
+                        CharactersBase targetCharacter = united.GetComponentInParent<CharactersBase>();
+
+                        if (targetCharacter != null && targetCharacter != character)
+                        {
+                            int healAmount = character.attackPower; 
+                            targetCharacter.Heling(healAmount);
+
+                            Debug.Log($"Unidad aliada curada. Curación aplicada: {healAmount}");
+
+                            unit.canAttack = false;
+
+                            UnitBaseState newState = new UnitSelectedState();
+                            unit.ChangeState(newState);
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("No hay una unidad aliada en este espacio para curar.");
+                    }
+                }
+                else
+                {
+                    Debug.Log("Fuera de rango para curar.");
+                }
+            }
+        }
+
+        else if (Input.GetButtonDown("Fire1"))
+        {
+            if (!unit.canAttack) return;
+
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                GameObject clickedObject = hit.collider.gameObject;
+                BoxController boxController = clickedObject.GetComponent<BoxController>();
+
+                if (highlightedMapCubes.Contains(clickedObject) && boxController != null)
+                {
+                    ObjectDetector objectDetector = clickedObject.GetComponentInChildren<ObjectDetector>();
+
                     if (objectDetector != null && objectDetector.IsEnemy)
                     {
-                        GameObject enemy = objectDetector.DetectedEnemy; // Obtener el enemigo detectado
+                        GameObject enemy = objectDetector.DetectedEnemy;
                         EnemyBetaStats enemyStats = enemy.GetComponent<EnemyBetaStats>();
 
                         if (enemyStats != null)
                         {
-                            // Obtener el poder de ataque del personaje y aplicar daño
-                            CharactersBase character = unit.GetComponent<CharactersBase>();
                             int damage = character.attackPower;
-
                             Debug.Log($"Enemigo atacado. Daño aplicado: {damage}");
                             enemyStats.TakeDamage(damage);
+                            unit.canAttack = false;
 
+                            UnitBaseState newState = new UnitSelectedState();
+                            unit.ChangeState(newState);
                         }
                         else
                         {

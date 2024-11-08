@@ -7,7 +7,7 @@ public abstract class CharactersBase : MonoBehaviour
 {
     public string characterName;
     public int maxHealth;
-    private int health;
+    public int health;
     public int movementRange;
     public int attackRange;
     public int attackPower;
@@ -57,6 +57,7 @@ public abstract class CharactersBase : MonoBehaviour
         {
             health = maxHealth;
         }
+        Debug.Log($"{characterName} curado. Salud actual: {health}");
     }
 
     protected void Die()
