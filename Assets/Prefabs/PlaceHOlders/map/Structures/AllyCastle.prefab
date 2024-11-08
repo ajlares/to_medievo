@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 45449564230638783}
   - component: {fileID: 2246645219019918759}
   - component: {fileID: 7199004987465266178}
+  - component: {fileID: 4101367863883754177}
   m_Layer: 0
   m_Name: Castle10
   m_TagString: Untagged
@@ -107,6 +108,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &4101367863883754177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45513545285635967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ac5deca7cf14d4482beba03ddafb37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRange: 4
+  numberOfUnitsToSpawn: 1
+  highlightMaterial: {fileID: 2100000, guid: 8ae0f444df7e0a643a0c3859fefeac28, type: 2}
 --- !u!1 &3745435236885617256
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +192,7 @@ GameObject:
   - component: {fileID: 6166848023154728870}
   - component: {fileID: 2582250380534987501}
   - component: {fileID: 5896246762904522883}
+  - component: {fileID: 6779529281552343877}
   m_Layer: 0
   m_Name: Castle0
   m_TagString: Untagged
@@ -271,6 +288,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &6779529281552343877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869597283188199470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ac5deca7cf14d4482beba03ddafb37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRange: 3
+  numberOfUnitsToSpawn: 1
+  highlightMaterial: {fileID: 0}
 --- !u!1 &4350054408960758216
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +315,7 @@ GameObject:
   - component: {fileID: 3913685032069304542}
   - component: {fileID: 2625840799745808473}
   - component: {fileID: 4533467848478440478}
+  - component: {fileID: 3319048099399916415}
   m_Layer: 0
   m_Name: Castle7
   m_TagString: Untagged
@@ -378,6 +411,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &3319048099399916415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4350054408960758216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ac5deca7cf14d4482beba03ddafb37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRange: 3
+  numberOfUnitsToSpawn: 1
+  highlightMaterial: {fileID: 0}
 --- !u!1 &5620537400120909057
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +438,7 @@ GameObject:
   - component: {fileID: 4119955750590213852}
   - component: {fileID: 1220722838847032203}
   - component: {fileID: 1980578189456984035}
+  - component: {fileID: 6447264029473674870}
   m_Layer: 0
   m_Name: Castle3
   m_TagString: Untagged
@@ -485,6 +534,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &6447264029473674870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5620537400120909057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ac5deca7cf14d4482beba03ddafb37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRange: 3
+  numberOfUnitsToSpawn: 1
+  highlightMaterial: {fileID: 0}
 --- !u!1 &8314737940292004487
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +561,7 @@ GameObject:
   - component: {fileID: 2022092298517638767}
   - component: {fileID: 6611342534311258965}
   - component: {fileID: 5598205911694216274}
+  - component: {fileID: 4754030474939595878}
   m_Layer: 0
   m_Name: Castle5
   m_TagString: Untagged
@@ -592,3 +657,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &4754030474939595878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8314737940292004487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ac5deca7cf14d4482beba03ddafb37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRange: 3
+  numberOfUnitsToSpawn: 1
+  highlightMaterial: {fileID: 0}

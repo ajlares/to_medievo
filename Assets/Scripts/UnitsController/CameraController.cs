@@ -5,11 +5,10 @@ public class CameraController : MonoBehaviour
     private Vector3 originalPosition; // Posición original de la cámara
     private Quaternion originalRotation; // Rotación original
     private Transform target; // Posición objetivo de la unidad seleccionada
-    [SerializeField] private float smoothSpeed = 5f; // Velocidad de movimiento suave
+    [SerializeField] private float smoothSpeed = 5f;
 
     private void Start()
     {
-        // Guardamos la posición y rotación inicial de la cámara
         originalPosition = transform.position;
         originalRotation = transform.rotation;
     }
@@ -33,7 +32,7 @@ public class CameraController : MonoBehaviour
 
     public void ResetCameraPosition()
     {
-        target = null; // Eliminar objetivo
+        target = null;
         transform.position = originalPosition;
         transform.rotation = originalRotation;
     }

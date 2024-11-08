@@ -87,8 +87,6 @@ public class Tower : MonoBehaviour
         Debug.Log($"{characterName} ha muerto.");
         Destroy(gameObject);
     }
-
-    // Método para restablecer la capacidad de atacar
     private void ResetAttack()
     {
         canAttack = true;

@@ -44,15 +44,12 @@ public class UnitAttackState : UnitBaseState
     {
         CharactersBase character = unit.GetComponent<CharactersBase>();
 
-        // Revisar si se presiona el botón derecho (Fire2) para curar si es un Cleric
         if(character is Builder && Input.GetButtonDown("Fire2"))
         {
             UnityEngine.Object.Destroy(unit.gameObject);
 
-            // Instanciar la torre en la posición del constructor
             UnityEngine.Object.Instantiate(unit.tower, unit.transform.position, Quaternion.identity);
 
-            // Cambiar el estado a un estado adecuado, como Idle, después de destruir el Builder
             UnitBaseState newState = new UnitIdleState();
             unit.ChangeState(newState);
 
@@ -68,12 +65,10 @@ public class UnitAttackState : UnitBaseState
                 GameObject clickedObject = hit.collider.gameObject;
                 BoxController boxController = clickedObject.GetComponent<BoxController>();
 
-                // Verificar si el objeto clicado está dentro del rango iluminado y es una casilla válida
                 if (highlightedMapCubes.Contains(clickedObject) && boxController != null)
                 {
                     ObjectDetector objectDetector = clickedObject.GetComponentInChildren<ObjectDetector>();
 
-                    // Verificar si el objeto es una unidad aliada
                     if (objectDetector != null && objectDetector.IsUnit)
                     {
                         GameObject united = objectDetector.DetectedUnit;
@@ -81,15 +76,13 @@ public class UnitAttackState : UnitBaseState
 
                         if (targetCharacter != null && targetCharacter != character)
                         {
-                            // Realizar la curación en la unidad aliada
-                            int healAmount = character.attackPower; // Puede usarse un valor de curación específico
+                            int healAmount = character.attackPower; 
                             targetCharacter.Heling(healAmount);
 
                             Debug.Log($"Unidad aliada curada. Curación aplicada: {healAmount}");
 
                             unit.canAttack = false;
 
-                            // Cambiar a un nuevo estado si el ataque se realiza correctamente
                             UnitBaseState newState = new UnitSelectedState();
                             unit.ChangeState(newState);
                         }
@@ -105,7 +98,7 @@ public class UnitAttackState : UnitBaseState
                 }
             }
         }
-        // ataque para unidades que no son Constructor o Cleric, o al hacer clic izquierdo
+
         else if (Input.GetButtonDown("Fire1"))
         {
             if (!unit.canAttack) return;
@@ -122,7 +115,6 @@ public class UnitAttackState : UnitBaseState
                 {
                     ObjectDetector objectDetector = clickedObject.GetComponentInChildren<ObjectDetector>();
 
-                    // Comprobar si el objeto es un enemigo
                     if (objectDetector != null && objectDetector.IsEnemy)
                     {
                         GameObject enemy = objectDetector.DetectedEnemy;
@@ -135,7 +127,6 @@ public class UnitAttackState : UnitBaseState
                             enemyStats.TakeDamage(damage);
                             unit.canAttack = false;
 
-                            // Cambiar a un nuevo estado si el ataque se realiza correctamente
                             UnitBaseState newState = new UnitSelectedState();
                             unit.ChangeState(newState);
                         }
