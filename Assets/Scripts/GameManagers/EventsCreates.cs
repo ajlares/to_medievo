@@ -23,7 +23,7 @@ public class EventsCreates : MonoBehaviour
     public void SelectBox()
     {
         int totalTiles = MapManager.instance.height * MapManager.instance.width;
-        int tempTileSelect = Random.Range(0, totalTiles); 
+        int tempTileSelect = Random.Range(1, totalTiles-1); 
         GameObject boxSelected = GameManager.instance.getCube(tempTileSelect);
         if(boxSelected != null)
         {
@@ -33,6 +33,8 @@ public class EventsCreates : MonoBehaviour
 
     private void eventSelect(GameObject boxSelected)
     {
-        Instantiate(stone,boxSelected.GetComponent<BoxController>().mapWayPoint.transform);
+        Vector3 temporalvector = boxSelected.GetComponent<BoxController>().mapWayPoint.transform.position;
+        Vector3 spawPoint = new Vector3(temporalvector.x,temporalvector.y+10,temporalvector.z);
+        Instantiate(stone,spawPoint,Quaternion.identity);
     }
 }
