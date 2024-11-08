@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2890490919746706035}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,4 +105,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a1b9c09ab4e69489c45c070723b1c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stone: {fileID: 3468566368279606857, guid: c9fa3e42cea5b964bbdac5c5ab44ba88, type: 3}
+  stone: {fileID: 8845300650621463369, guid: 35e7ba52f5b6ad34395b2f8726070b15, type: 3}
