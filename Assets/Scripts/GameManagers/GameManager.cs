@@ -21,35 +21,35 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
-
     private void Start() 
     {
         turnCount = 1;
         MapManager.instance.worldGenerate();   
     }
-
     private void Update() 
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            NextTurn();
+            if(IAGeneralManager.instance.turnComplete)
+            {
+                NextTurn();
+            }
+            else
+            {
+                Debug.Log("Al enemigo le falta aun por mover");
+            }
         }
     }
     private void NextTurn()
     {
+        Debug.Log("Next Turn");
         //setea todo para el siguiente turno
         EventManager.instance.turnUpdate();
         //cambia el turno
         turnCount++;
         // hace los seteos de turno respectivos
         IAGeneralManager.instance.Newturn();
-    }
-    
-    private void canSelect()
-    {
-
-    }
-    
+    }  
     public int addlistCube(GameObject valeu)
     {
         tilemap.Add(valeu);
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-        return null;
+            return null;
         }
     }
 }

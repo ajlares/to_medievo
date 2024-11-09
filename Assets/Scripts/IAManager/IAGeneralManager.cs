@@ -2,8 +2,8 @@ using System.Collections;
 using UnityEngine;
 public class IAGeneralManager : MonoBehaviour
 {
-    [SerializeField] private bool turnComplete;
-    [SerializeField] private bool nextMove;
+    [SerializeField] public bool turnComplete;
+    [SerializeField] private bool cantMoveUnit;
     [SerializeField] private bool canSpawnUnit;
 
      #region intance
@@ -30,19 +30,24 @@ public class IAGeneralManager : MonoBehaviour
     {
         if(!turnComplete)
         {
-            if(nextMove)
+            if(canSpawnUnit && EnemyCastle.instance.UnitsToUse > 0)
             {
-                if(canSpawnUnit && EnemyCastle.instance.UnitsToUse > 0)
-                {
-                    Debug.Log("spawmUnit");
-                    SpawnUnit();
-                }
-                if(GameManager.instance.enemyUnits.Count>0)
-                {
-            
-                }
-
+                Debug.Log("spawmUnit");
+                SpawnUnit();
             }
+            else if(GameManager.instance.enemyUnits.Count>0)
+            {
+                
+            }
+            else
+            {
+                cantMoveUnit = true;
+            }
+            if(cantMoveUnit)
+            {
+                turnComplete = true;
+            }
+
         }
     }
     private void SpawnUnit()
@@ -57,16 +62,12 @@ public class IAGeneralManager : MonoBehaviour
     public void Newturn()
     {
         StartCoroutine(WaitTime());
+        turnComplete = false;
+        canSpawnUnit = true;
     }
     IEnumerator WaitTime()
     {
-        yield return new WaitForSeconds(3);
-        canSpawnUnit = true;
+        yield return new WaitForSeconds(2);
         yield return null;
     }
-    IEnumerator turnDelay()
-    {
-        yield return new WaitForSeconds(.25f);
-    }
-
 }
