@@ -61,7 +61,6 @@ public class IAGeneralManager : MonoBehaviour
             rh = Random.Range(7,10);
             rw *= 10;
             tempCube = GameManager.instance.getCube(rw+rh);
-            Debug.Log(rw+rh);
             if(tempCube.GetComponent<BoxController>().IsEmpty)
             {   
                 Vector3 newSpawn = new Vector3 (tempCube.transform.position.x, tempCube.transform.position.y + .5f, tempCube.transform.position.z);
