@@ -9,6 +9,7 @@ public class UnitSelectedState : UnitBaseState
         Debug.Log("Entrando en SELECTED");
         outlineMaterial = Resources.Load<Material>("OutlineMaterial1");
         ApplyOutline(unit, true);
+        unit.anim.SetInteger("Count",0);
     }
 
     public override void ExitState(UnitStateManager unit)

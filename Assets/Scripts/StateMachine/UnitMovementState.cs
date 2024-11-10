@@ -61,6 +61,7 @@ public class UnitMovementState : UnitBaseState
                     );
                     unit.transform.position = targetPosition;
                     unit.canMove = false;
+                    unit.anim.SetInteger("Count",1);
                     UnitBaseState newState = new UnitSelectedState();
                     unit.ChangeState(newState);
                 }

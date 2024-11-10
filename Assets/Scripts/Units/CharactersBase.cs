@@ -13,6 +13,8 @@ public abstract class CharactersBase : MonoBehaviour
     public int attackPower;
     public int defenseBonus;
 
+    public Animator anim;
+
     protected UnitStateManager stateManager;
 
     public MovementPattern MovementPattern { get; protected set; }
@@ -39,10 +41,11 @@ public abstract class CharactersBase : MonoBehaviour
     {
         damage -= defenseBonus;
         health -= damage;
-        
+        anim.SetInteger("Count",3);
         if (health <= 0)
         {
-            Die();
+            anim.SetInteger("Count",4);
+            //Die();
         }
         else
         {

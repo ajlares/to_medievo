@@ -5,7 +5,7 @@ public class UnitIdleState : UnitBaseState
 {
      public override void EnterState(UnitStateManager unit)
     {
-        Debug.Log("Entrando en IDLE");
+        unit.anim.SetInteger("Count",0);
     }
 
     public override void ExitState(UnitStateManager unit)

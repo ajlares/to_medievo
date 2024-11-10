@@ -19,6 +19,8 @@ public class UnitStateManager : MonoBehaviour
 
     public GameObject tower;
 
+    public Animator anim;  
+
     void Start()
     {
         cameraController = FindObjectOfType<CameraController>();

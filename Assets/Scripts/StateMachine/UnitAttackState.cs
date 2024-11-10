@@ -126,6 +126,7 @@ public class UnitAttackState : UnitBaseState
                             Debug.Log($"Enemigo atacado. Daño aplicado: {damage}");
                             enemyStats.TakeDamage(damage);
                             unit.canAttack = false;
+                            unit.anim.SetInteger("Count",2);
 
                             UnitBaseState newState = new UnitSelectedState();
                             unit.ChangeState(newState);
