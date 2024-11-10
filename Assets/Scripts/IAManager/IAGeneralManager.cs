@@ -53,6 +53,7 @@ public class IAGeneralManager : MonoBehaviour
             {   
                 int tempint = Random.Range(0,4);
                 tempunit = EnemyCastle.instance.units[tempint];
+                tempunit.GetComponent<AIMoveUnit>().newPlace(rw/10,rh);
                 Vector3 newSpawn = new Vector3 (tempCube.transform.position.x, tempCube.transform.position.y + .5f, tempCube.transform.position.z);
                 Instantiate(tempunit,newSpawn,Quaternion.identity);
                 tempCube.GetComponent<BoxController>().saveObject(tempunit);

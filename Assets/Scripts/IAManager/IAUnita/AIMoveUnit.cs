@@ -1,44 +1,48 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 public class AIMoveUnit : MonoBehaviour
 {
     [SerializeField] public Vector2 actualPlace;
-    private void Start()
+    public void newPlace(int x, int z)
     {
-        actualPlace = new Vector2(transform.position.x,transform.position.z);    
+        actualPlace = new Vector2(x,z); 
     }
     public void moveUnit()
     {
-        int close = closeObjects(); 
-    }
-    private int closeObjects()
-    {
         int actionDistance = GetComponent<EnemyStats>().actionDistance;
-        int valeuS, valeuW, valeuE, valeuN,search;
+        bool enemyDetecte;
+        bool allyDetecte;
+        Vector2 enemyPlace;
+        Vector2 allyPlace;
         //south
-        Debug.Log(actualPlace);
-        Debug.Log("dy = "+actualPlace.y + "ad = "+actionDistance+" = "+(actualPlace.y-actionDistance));
         if((actualPlace.y - actionDistance) > 0)
         {
-            search = (int)((actualPlace.x * 10)+actualPlace.y);
-            Debug.Log(search);
+            for(int i = 0; i <= actionDistance; i ++)
+            {
+                int cubePlace = (int)((((actualPlace.x * 10 ) + actualPlace.y ) -i));
+                GameObject tempCube = GameManager.instance.getCube(cubePlace);
+                if(!tempCube.GetComponent<BoxController>().IsEmpty)
+                {
+                    
+                }
+            }
         }
         //west
-        if((actualPlace.y - actionDistance) < 0)
+        if((actualPlace.x - actionDistance) < 0)
         {
             
         }
         // east
-        if((actualPlace.y + actionDistance) < 0)
-        {
-
-        }
-        // north
         if((actualPlace.x + actionDistance) < 0)
         {
 
         }
-        return 0;
+        // north
+        if((actualPlace.y + actionDistance) < 0)
+        {
+
+        }
     }
 }
