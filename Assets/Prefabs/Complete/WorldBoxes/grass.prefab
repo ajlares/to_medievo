@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEmpty: 1
-  obstacle: {fileID: 3745435236885617256, guid: 68ced043c4762714ea0c76345b3a169f, type: 3}
+  obstacle: {fileID: 7400630192684647964, guid: d9ea49b74eddbe74b9aebfa62db38d9f, type: 3}
   managerListValeu: 0
   tipeBlock: 0
   objectHere: {fileID: 0}

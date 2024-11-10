@@ -228,6 +228,18 @@ PrefabInstance:
       propertyPath: canSpawnUnit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3247302840039108371, guid: 8f83dc7e58ebeb742bef0081f57eec56, type: 3}
+      propertyPath: mapPeefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8180486338537791715, guid: 4a6fcf058d1724d41a89d954a51daba6, type: 3}
+    - target: {fileID: 3247302840039108371, guid: 8f83dc7e58ebeb742bef0081f57eec56, type: 3}
+      propertyPath: mapPeefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8180486338537791715, guid: 4784247df6be28743adc8f89e071d2f1, type: 3}
+    - target: {fileID: 3247302840039108371, guid: 8f83dc7e58ebeb742bef0081f57eec56, type: 3}
+      propertyPath: mapPeefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 8180486338537791715, guid: 98c467f2eebd98c4d934939f54273611, type: 3}
     - target: {fileID: 3552712019139864658, guid: 8f83dc7e58ebeb742bef0081f57eec56, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
