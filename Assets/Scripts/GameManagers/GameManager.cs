@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int turnCount;
     [SerializeField] private List<GameObject> allyUnits;
     [SerializeField] public List<GameObject> enemyUnits;
-    [SerializeField] private List<GameObject> tilemap;
+    [SerializeField] public List<GameObject> tilemap;
     #region intance
     public static GameManager instance;
     private void Awake() 
