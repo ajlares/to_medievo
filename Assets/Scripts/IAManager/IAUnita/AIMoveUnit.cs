@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
-
 
 public class AIMoveUnit : MonoBehaviour
 {
@@ -21,12 +19,12 @@ public class AIMoveUnit : MonoBehaviour
         {
             for(int i = 0; i <= actionDistance; i ++)
             {
-                int cubePlace = (int)((((actualPlace.x * 10 ) + actualPlace.y ) -i));
+                int cubePlace = (int)((actualPlace.x * 10 ) + (actualPlace.y - actionDistance));
                 GameObject tempCube = GameManager.instance.getCube(cubePlace);
                 if(!tempCube.GetComponent<BoxController>().IsEmpty)
                 {
-                    
-                }
+                    Debug.Log(cubePlace+ "isnt empty");
+                }   
             }
         }
         //west
