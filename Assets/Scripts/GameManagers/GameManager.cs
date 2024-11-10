@@ -30,14 +30,7 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            if(IAGeneralManager.instance.turnComplete)
-            {
-                NextTurn();
-            }
-            else
-            {
-                Debug.Log("Al enemigo le falta aun por mover");
-            }
+            NextTurn();
         }
     }
     private void NextTurn()
@@ -54,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         tilemap.Add(valeu);
         return tilemap.Count - 1;
-    }
+    } 
     public GameObject getCube(int valeu)
     {
         if(valeu < tilemap.Count)

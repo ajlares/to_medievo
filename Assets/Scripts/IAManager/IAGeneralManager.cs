@@ -1,8 +1,8 @@
 using System.Collections;
+using System.Data;
 using UnityEngine;
 public class IAGeneralManager : MonoBehaviour
 {
-    [SerializeField] public bool turnComplete;
     [SerializeField] public GameObject tempunit;
     [SerializeField] private bool cantMoveUnit;
     [SerializeField] private bool canSpawnUnit;
@@ -31,24 +31,13 @@ public class IAGeneralManager : MonoBehaviour
 
     void Update()
     {
-        if(!turnComplete)
+        if(canSpawnUnit && EnemyCastle.instance.UnitsToUse > 0)
         {
-            if(canSpawnUnit && EnemyCastle.instance.UnitsToUse > 0)
-            {
-                SpawnUnit();
-            }
-            else if(GameManager.instance.enemyUnits.Count>0)
-            {
-                //moveUnit();
-            }
-            else
-            {
-                cantMoveUnit = true;
-            }
-            if(cantMoveUnit)
-            {
-                turnComplete = true;
-            }
+            SpawnUnit();
+        }
+        else if(cantMoveUnit && GameManager.instance.enemyUnits.Count > 0)
+        {
+            moveUnit();
         }
     }
     private void SpawnUnit()
@@ -56,32 +45,36 @@ public class IAGeneralManager : MonoBehaviour
         canSpawnUnit = false;
         for(int i = 0;i < 9 ; i++)
         {
-
             rw = Random.Range(7,10);
             rh = Random.Range(7,10);
             rw *= 10;
             tempCube = GameManager.instance.getCube(rw+rh);
             if(tempCube.GetComponent<BoxController>().IsEmpty)
             {   
-                Vector3 newSpawn = new Vector3 (tempCube.transform.position.x, tempCube.transform.position.y + .5f, tempCube.transform.position.z);
                 int tempint = Random.Range(0,4);
                 tempunit = EnemyCastle.instance.units[tempint];
+                Vector3 newSpawn = new Vector3 (tempCube.transform.position.x, tempCube.transform.position.y + .5f, tempCube.transform.position.z);
                 Instantiate(tempunit,newSpawn,Quaternion.identity);
                 tempCube.GetComponent<BoxController>().saveObject(tempunit);
-                EnemyCastle.instance.UnitsToUse =-1;
+                GameManager.instance.enemyUnits.Add(tempunit);
+                EnemyCastle.instance.UnitsToUse = -1;
                 break;
             }
         }
     }
-    private void moveUnit(GameObject unit)
+    private void moveUnit()
     {
-
+        cantMoveUnit = false;
+        for(int i =0;i < GameManager.instance.enemyUnits.Count;i++)
+        {
+            GameManager.instance.enemyUnits[i].GetComponent<AIMoveUnit>().moveUnit();
+        }
     }
     public void Newturn()
     {
         StartCoroutine(WaitTime());
-        turnComplete = false;
         canSpawnUnit = true;
+        cantMoveUnit = true;
     }
     IEnumerator WaitTime()
     {
