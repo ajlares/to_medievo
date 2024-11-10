@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4a865ff1ae94623478fd37d5d1950835, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.75241226
+      value: -3.5668666
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4a865ff1ae94623478fd37d5d1950835, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000023841858
+      value: 0.00000011920929
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4a865ff1ae94623478fd37d5d1950835, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.3971844
+      value: 1.6748929
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4a865ff1ae94623478fd37d5d1950835, type: 3}
       propertyPath: m_LocalRotation.w
@@ -51,11 +51,11 @@ PrefabInstance:
     - target: {fileID: -3277632445827609632, guid: 4a865ff1ae94623478fd37d5d1950835, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: a9b7cd7de26f552429277843a6e2e996, type: 2}
     - target: {fileID: -1773050056367656312, guid: 4a865ff1ae94623478fd37d5d1950835, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: a9b7cd7de26f552429277843a6e2e996, type: 2}
     - target: {fileID: 919132149155446097, guid: 4a865ff1ae94623478fd37d5d1950835, type: 3}
       propertyPath: m_Name
       value: Fbx_Knight
