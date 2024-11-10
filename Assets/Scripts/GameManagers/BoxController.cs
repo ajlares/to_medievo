@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BoxController : MonoBehaviour
@@ -5,6 +6,7 @@ public class BoxController : MonoBehaviour
     [SerializeField] private bool isEmpty;
     [SerializeField] private GameObject obstacle;
     [SerializeField] int managerListValeu;
+    [SerializeField] int tipeBlock;
     [SerializeField] GameObject objectHere;
     [SerializeField] public GameObject mapWayPoint;
 
@@ -44,14 +46,16 @@ public class BoxController : MonoBehaviour
         //spawnea un obstaculo
         if(isEmpty)
         {
-            Instantiate(obstacle, mapWayPoint.transform);
+            Vector3 temporalvector =  new Vector3 (transform.position.x,transform.position.y+.5f,transform.position.z);
+            Instantiate(obstacle, temporalvector,quaternion.identity);
             isEmpty = false;
         }
     }
     public void CastleCreate(GameObject castle)
     {
         //spawnea un castillo
-        Instantiate(castle, mapWayPoint.transform);
+        Vector3 temporalvector =  new Vector3 (transform.position.x,transform.position.y+.5f,transform.position.z);
+        Instantiate(castle,  temporalvector,quaternion.identity);
         isEmpty = false;
     }
     public void saveObject(GameObject ObjectToSave)

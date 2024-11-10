@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6816005384291937635}
   - component: {fileID: 27173561806267290}
   - component: {fileID: 489693984928362074}
-  - component: {fileID: 3493082215863823394}
   m_Layer: 0
   m_Name: Water2
   m_TagString: MapCube
@@ -107,22 +106,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3493082215863823394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6597025046109527181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8965f96c212c4c64b903ed41f467ea7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  internalValeu: 0
-  isEmpty: 1
-  obstacle: {fileID: 0}
-  managerListValeu: 0
 --- !u!1 &8947550580084120121
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetEnemy: Enemy
   targetUnit: Unit
-  boxController: {fileID: 3493082215863823394}
+  isUnit: 0
+  isEnemy: 0
+  boxController: {fileID: 0}
 --- !u!135 &6636482191833388419
 SphereCollider:
   m_ObjectHideFlags: 0

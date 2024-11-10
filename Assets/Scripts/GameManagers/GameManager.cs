@@ -5,8 +5,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private int turnCount;
     [SerializeField] private List<GameObject> allyUnits;
-    [SerializeField] private List<GameObject> enemyUnits;
-    [SerializeField] private List<GameObject> tilemap;
+    [SerializeField] public List<GameObject> enemyUnits;
+    [SerializeField] public List<GameObject> tilemap;
     #region intance
     public static GameManager instance;
     private void Awake() 
@@ -21,33 +21,35 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
-
     private void Start() 
     {
         turnCount = 1;
         MapManager.instance.worldGenerate();   
     }
-
     private void Update() 
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            NextTurn();
+            if(IAGeneralManager.instance.turnComplete)
+            {
+                NextTurn();
+            }
+            else
+            {
+                Debug.Log("Al enemigo le falta aun por mover");
+            }
         }
     }
     private void NextTurn()
     {
+        Debug.Log("Next Turn");
         //setea todo para el siguiente turno
         EventManager.instance.turnUpdate();
         //cambia el turno
         turnCount++;
-    }
-    
-    private void canSelect()
-    {
-
-    }
-    
+        // hace los seteos de turno respectivos
+        IAGeneralManager.instance.Newturn();
+    }  
     public int addlistCube(GameObject valeu)
     {
         tilemap.Add(valeu);
@@ -61,7 +63,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-        return null;
+            return null;
         }
     }
 }

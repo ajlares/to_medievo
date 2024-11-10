@@ -7,13 +7,14 @@ public class Knight : CharactersBase
         base.Start();
         characterName = "Kight";
         maxHealth = 100;
+        health = maxHealth;
         movementRange = 3;
         attackRange = 2;
         attackPower = 15;
         defenseBonus = 5;
 
         MovementPattern = new CrossPatternM();
-        AttackPattern = new CirclePatternA();
+        AttackPattern = new CrossPatternA();
     }
 
     public override void SpecialAbility()

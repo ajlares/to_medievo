@@ -14,24 +14,16 @@ public class CirclePatternA : MovementPattern
 
         foreach (var cube in mapCubes)
         {
-            Vector3 cubePosition = cube.transform.position;
-            float distance = Vector3.Distance(unitPosition, cubePosition);
-
-            // Verificar si está dentro del rango y alineado en X o Z
-            if (distance <= range &&
-                (Mathf.Approximately(cubePosition.x, unitPosition.x) ||
-                Mathf.Approximately(cubePosition.z, unitPosition.z)))
+            float distance = Vector3.Distance(unitPosition, cube.transform.position);
+            if (distance <= range)
             {
                 BoxController boxController = cube.GetComponent<BoxController>();
-
-                // Si el BoxController es nulo o está vacío, verificamos el ObjectDetector
-                if (boxController != null && (boxController.IsEmpty || HasEnemyInCube(cube)))
+                if (boxController == null || boxController.IsEmpty || HasEnemyInCube(cube))
                 {
-                    validCubes.Add(cube); // Agregar cubo válido a la lista
+                    validCubes.Add(cube);
                 }
             }
         }
-
         return validCubes;
     }   
 

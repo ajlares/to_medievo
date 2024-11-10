@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7804265704932452522}
   - component: {fileID: 378028398425080578}
   - component: {fileID: 5576018204279281789}
-  - component: {fileID: 8816112748215216271}
   m_Layer: 0
   m_Name: Stone2
   m_TagString: MapCube
@@ -107,22 +106,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8816112748215216271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 775058800022330809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8965f96c212c4c64b903ed41f467ea7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  internalValeu: 0
-  isEmpty: 1
-  obstacle: {fileID: 3745435236885617256, guid: d4808e2c1057f94428407b81296b380c, type: 3}
-  managerListValeu: 0
 --- !u!1 &8318782168016343085
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetEnemy: Enemy
   targetUnit: Unit
-  boxController: {fileID: 8816112748215216271}
+  isUnit: 0
+  isEnemy: 0
+  boxController: {fileID: 0}
 --- !u!135 &2812173978325364995
 SphereCollider:
   m_ObjectHideFlags: 0
