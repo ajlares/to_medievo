@@ -14,11 +14,12 @@ public class AIMoveUnit : MonoBehaviour
     }
     private int closeObjects()
     {
-        Debug.Log("seachMovement");
         int actionDistance = GetComponent<EnemyStats>().actionDistance;
         int valeuS, valeuW, valeuE, valeuN,search;
         //south
-        if((actualPlace.x - actionDistance) > 0)
+        Debug.Log(actualPlace);
+        Debug.Log("dy = "+actualPlace.y + "ad = "+actionDistance+" = "+(actualPlace.y-actionDistance));
+        if((actualPlace.y - actionDistance) > 0)
         {
             search = (int)((actualPlace.x * 10)+actualPlace.y);
             Debug.Log(search);

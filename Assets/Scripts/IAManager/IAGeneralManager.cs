@@ -31,13 +31,13 @@ public class IAGeneralManager : MonoBehaviour
 
     void Update()
     {
+        if(cantMoveUnit && GameManager.instance.enemyUnits.Count > 0)
+        {
+            moveUnit();
+        }
         if(canSpawnUnit && EnemyCastle.instance.UnitsToUse > 0)
         {
             SpawnUnit();
-        }
-        else if(cantMoveUnit && GameManager.instance.enemyUnits.Count > 0)
-        {
-            moveUnit();
         }
     }
     private void SpawnUnit()
