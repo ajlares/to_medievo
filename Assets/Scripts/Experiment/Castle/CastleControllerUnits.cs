@@ -40,7 +40,6 @@ public class CastleControllerUnits : MonoBehaviour
 
     private void HighlightCubesInRange()
     {
-        // Obtener las celdas válidas dentro del rango usando el patrón CirclePatternM
         List<GameObject> validCubes = circlePattern.GetValidCubes(gameObject, spawnRange);
 
         foreach (var cube in validCubes)
@@ -90,7 +89,7 @@ public class CastleControllerUnits : MonoBehaviour
             int randomIndex = Random.Range(0, validCubes.Count);
             GameObject selectedCube = validCubes[randomIndex];
 
-            // Instanciar una unidad aleatoria usando AllyCastle
+           
             AllyCastle.instance.instanceUnit(selectedCube);
 
             validCubes.RemoveAt(randomIndex);

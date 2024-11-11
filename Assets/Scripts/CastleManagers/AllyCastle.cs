@@ -44,7 +44,8 @@ public class AllyCastle : MonoBehaviour
         int randomUnit = Random.Range(0, units.Count);
 
         Vector3 spawnPosition = spaw.transform.position;
-        spawnPosition.y = 1.5f;
+        spawnPosition.y = 1f;
+        unitsToUse += 1;
         
         Instantiate(units[randomUnit], spawnPosition, Quaternion.identity);
     }
