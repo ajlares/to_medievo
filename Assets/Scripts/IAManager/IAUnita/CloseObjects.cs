@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CloseObjects : MonoBehaviour
 {
-    [SerializeField] List<Vector2> results;
+    [SerializeField] private List<Vector2> results;
     [SerializeField] EnemyStats ES;
 
     private void Start() 
