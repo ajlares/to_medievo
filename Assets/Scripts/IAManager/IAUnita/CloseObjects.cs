@@ -9,6 +9,30 @@ public class CloseObjects : MonoBehaviour
 
     public void UpdateCLoseObjects()
     {
+        sourthUpdate();
+        northUpdate();
+        eastUpdate();
+        weastUpdate();
+    }
+
+    private void updatepos()
+    {
+
+    }
+    private void sourthUpdate()
+    {
+        
+    }
+    private void northUpdate()
+    {
+        
+    }
+    private void eastUpdate()
+    {
+        
+    }
+    private void weastUpdate()
+    {
         
     }
 }

@@ -67,8 +67,7 @@ public class IAGeneralManager : MonoBehaviour
         cantMoveUnit = false;
         for(int i =0;i < GameManager.instance.enemyUnits.Count;i++)
         {
-            //GameManager.instance.enemyUnits[i].GetComponent<AIMoveUnit>().moveUnit();
-            Debug.Log("la unidad" + GameManager.instance.enemyUnits[i].gameObject + " se mueve");
+
         }
     }
     public void Newturn()
@@ -76,10 +75,18 @@ public class IAGeneralManager : MonoBehaviour
         StartCoroutine(WaitTime());
         canSpawnUnit = true;
         cantMoveUnit = true;
+        UpdateEnemies();
     }
     IEnumerator WaitTime()
     {
         yield return new WaitForSeconds(2);
         yield return null;
+    }
+    private void UpdateEnemies()
+    {
+        for(int i =0;i < GameManager.instance.enemyUnits.Count;i++)
+        {
+            GameManager.instance.enemyUnits[i].GetComponent<CloseObjects>().UpdateCLoseObjects();
+        }
     }
 }
