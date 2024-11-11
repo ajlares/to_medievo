@@ -13,6 +13,8 @@ public abstract class CharactersBase : MonoBehaviour
     public int attackPower;
     public int defenseBonus;
 
+    public Animator anim;
+
     protected UnitStateManager stateManager;
 
     public MovementPattern MovementPattern { get; protected set; }
@@ -39,10 +41,10 @@ public abstract class CharactersBase : MonoBehaviour
     {
         damage -= defenseBonus;
         health -= damage;
-        
+        anim.SetInteger("C",3);
         if (health <= 0)
         {
-            Die();
+            anim.SetInteger("C",4);
         }
         else
         {
@@ -63,6 +65,7 @@ public abstract class CharactersBase : MonoBehaviour
     protected void Die()
     {
         Debug.Log(characterName + " ha muerto.");
+        AllyCastle.instance.UnitsToUse = +1;
         Destroy(gameObject);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private int turnCount;
-    [SerializeField] private List<GameObject> allyUnits;
+    [SerializeField] public List<GameObject> allyUnits;
     [SerializeField] public List<GameObject> enemyUnits;
     [SerializeField] public List<GameObject> tilemap;
     #region intance
@@ -30,14 +30,7 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            if(IAGeneralManager.instance.turnComplete)
-            {
-                NextTurn();
-            }
-            else
-            {
-                Debug.Log("Al enemigo le falta aun por mover");
-            }
+            NextTurn();
         }
     }
     private void NextTurn()
@@ -49,12 +42,16 @@ public class GameManager : MonoBehaviour
         turnCount++;
         // hace los seteos de turno respectivos
         IAGeneralManager.instance.Newturn();
+        // Llama al metodo para permitir el movimeinto y ataque de las unidades
+        UnitTurnManager.instance.EnableMovementAndAttackForAllies();
+        CastleControllerUnits.instance.canSpawnUnit = true;
+
     }  
     public int addlistCube(GameObject valeu)
     {
         tilemap.Add(valeu);
         return tilemap.Count - 1;
-    }
+    } 
     public GameObject getCube(int valeu)
     {
         if(valeu < tilemap.Count)
