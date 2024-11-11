@@ -84,6 +84,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a865ff1ae94623478fd37d5d1950835, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1528328707697465896}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a865ff1ae94623478fd37d5d1950835, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6080491359111588335}
   m_SourcePrefab: {fileID: 100100000, guid: 4a865ff1ae94623478fd37d5d1950835, type: 3}
 --- !u!1 &5555488080654463714 stripped
 GameObject:
@@ -124,7 +127,8 @@ MonoBehaviour:
   enemiesClose: []
   allyClose: []
   obstaclesClose: []
-  placeEmptys: []
+  metheoriteClose: []
+  placeEmptys: 
   ES: {fileID: 8528905161228220976}
 --- !u!54 &3689135905137345045
 Rigidbody:
@@ -176,3 +180,16 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: -0, y: 0.5, z: 0}
+--- !u!114 &6080491359111588335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5555488080654463714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3b1cb59f9d26d40b7e371681a13d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iD: 1
