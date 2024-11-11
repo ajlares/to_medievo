@@ -45,7 +45,6 @@ public class AllyCastle : MonoBehaviour
 
         Vector3 spawnPosition = spaw.transform.position;
         spawnPosition.y = 1f;
-        unitsToUse += 1;
         
         Instantiate(units[randomUnit], spawnPosition, Quaternion.identity);
     }
