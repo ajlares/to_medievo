@@ -21,7 +21,6 @@ public class CloseObjects : MonoBehaviour
         eastUpdate();
         weastUpdate();
     }
-
     private void updatepos()
     {
 
@@ -30,8 +29,9 @@ public class CloseObjects : MonoBehaviour
     {
         int x = ES.PoX;
         int y = ES.PoY;
-        for(int i =0; i<ES.actionDistance;i++)
+        for(int i = 0; i<ES.actionDistance;i++)
         {
+            Debug.Log(i);
             int cubeSelect = ((y-(i+1))*10)+x;
             if(!GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().IsEmpty)
             {
