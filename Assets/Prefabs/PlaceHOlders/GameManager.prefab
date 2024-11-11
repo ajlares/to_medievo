@@ -68,10 +68,10 @@ MonoBehaviour:
   width: 10
   mapPeefabs:
   - {fileID: 8180486338537791715, guid: 961a06ac0fa580d4dab63e60377997ef, type: 3}
-  - {fileID: 8180486338537791715, guid: 961a06ac0fa580d4dab63e60377997ef, type: 3}
-  - {fileID: 8180486338537791715, guid: 961a06ac0fa580d4dab63e60377997ef, type: 3}
+  - {fileID: 8180486338537791715, guid: 4a6fcf058d1724d41a89d954a51daba6, type: 3}
+  - {fileID: 8180486338537791715, guid: 4784247df6be28743adc8f89e071d2f1, type: 3}
   - {fileID: 8180486338537791715, guid: b1eb6501281bcdd4f9db7085d0a0c412, type: 3}
-  - {fileID: 8180486338537791715, guid: b1eb6501281bcdd4f9db7085d0a0c412, type: 3}
+  - {fileID: 8180486338537791715, guid: 98c467f2eebd98c4d934939f54273611, type: 3}
   - {fileID: 8180486338537791715, guid: f13c59edea2b9ad469f2f5d4953fe5a9, type: 3}
   castles:
   - {fileID: 3745435236885617256, guid: d199d436a44848746b8dccbc9dd8a79c, type: 3}
@@ -151,3 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a12aac980dccd46a6a84f15513f524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tempunit: {fileID: 0}
+  cantMoveUnit: 0
+  canSpawnUnit: 1
+  tempCube: {fileID: 0}
+  rw: 0
+  rh: 0
