@@ -460,6 +460,8 @@ MonoBehaviour:
   damage: 0
   actionDistance: 2
   moveDistance: 1
+  poX: 0
+  poY: 0
 --- !u!114 &4431380444566982067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,6 +477,7 @@ MonoBehaviour:
   enemiesClose: []
   allyClose: []
   obstaclesClose: []
+  ES: {fileID: 1035948068828468008}
 --- !u!54 &2522858379038314361
 Rigidbody:
   m_ObjectHideFlags: 0

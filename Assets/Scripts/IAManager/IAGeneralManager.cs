@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Data;
 using UnityEngine;
 public class IAGeneralManager : MonoBehaviour
 {
@@ -47,16 +46,14 @@ public class IAGeneralManager : MonoBehaviour
         {
             rw = Random.Range(7,10);
             rh = Random.Range(7,10);
-            Debug.Log("rw = " + rw + "rh = " + rh);
             rw *= 10;
-            Debug.Log(rw+rh);
             tempCube = GameManager.instance.getCube(rw+rh);
             if(tempCube.GetComponent<BoxController>().IsEmpty)
             {   
                 int tempint = Random.Range(0,4);
                 tempunit = EnemyCastle.instance.units[tempint]; 
-                tempunit.GetComponent<EnemyStats>().PoX = rw/10;
-                tempunit.GetComponent<EnemyStats>().PoY = rh;
+                tempunit.GetComponent<EnemyStats>().PoX = rh;
+                tempunit.GetComponent<EnemyStats>().PoY = rw/10;
                 Vector3 newSpawn = new Vector3 (tempCube.transform.position.x, tempCube.transform.position.y + .5f, tempCube.transform.position.z);
                 Instantiate(tempunit,newSpawn,Quaternion.identity);
                 tempCube.GetComponent<BoxController>().saveObject(tempunit);
@@ -71,7 +68,7 @@ public class IAGeneralManager : MonoBehaviour
         cantMoveUnit = false;
         for(int i =0;i < GameManager.instance.enemyUnits.Count;i++)
         {
-
+            
         }
     }
     public void Newturn()
