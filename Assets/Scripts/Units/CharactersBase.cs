@@ -45,7 +45,6 @@ public abstract class CharactersBase : MonoBehaviour
         if (health <= 0)
         {
             anim.SetInteger("C",4);
-            //Die();
         }
         else
         {
@@ -66,6 +65,7 @@ public abstract class CharactersBase : MonoBehaviour
     protected void Die()
     {
         Debug.Log(characterName + " ha muerto.");
+        AllyCastle.instance.UnitsToUse = +1;
         Destroy(gameObject);
     }
 }
