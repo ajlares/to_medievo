@@ -41,10 +41,10 @@ public abstract class CharactersBase : MonoBehaviour
     {
         damage -= defenseBonus;
         health -= damage;
-        anim.SetInteger("Count",3);
+        anim.SetInteger("C",3);
         if (health <= 0)
         {
-            anim.SetInteger("Count",4);
+            anim.SetInteger("C",4);
             //Die();
         }
         else
