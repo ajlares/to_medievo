@@ -12,6 +12,21 @@ public class CastleControllerUnits : MonoBehaviour
     private Dictionary<GameObject, Material> originalMaterials = new Dictionary<GameObject, Material>();
     private CirclePatternM circlePattern;
 
+    public bool canSpawnUnit = true;
+
+    public static CastleControllerUnits instance;
+    private void Awake() 
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy( this);
+        }
+    }
+
     private void Start()
     {
         circlePattern = new CirclePatternM();
@@ -76,6 +91,18 @@ public class CastleControllerUnits : MonoBehaviour
 
     private void SpawnUnitsInRange()
     {
+        if (!canSpawnUnit)
+        {
+            Debug.LogWarning("Ya se ha generado una unidad este turno.");
+            return;
+        }
+
+        if (EnemyCastle.instance.UnitsToUse <= 0)
+        {
+            Debug.LogWarning("No se puede generar mas unidades");
+            return;
+        }
+
         List<GameObject> validCubes = circlePattern.GetValidCubes(gameObject, spawnRange);
 
         if (validCubes.Count == 0)
@@ -84,17 +111,19 @@ public class CastleControllerUnits : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < numberOfUnitsToSpawn && validCubes.Count > 0; i++)
-        {
-            int randomIndex = Random.Range(0, validCubes.Count);
-            GameObject selectedCube = validCubes[randomIndex];
+        int randomIndex = Random.Range(0, validCubes.Count);
+        GameObject selectedCube = validCubes[randomIndex];
 
-           
-            AllyCastle.instance.instanceUnit(selectedCube);
+        AllyCastle.instance.instanceUnit(selectedCube);
+        AllyCastle.instance.UnitsToUse = -1;
 
-            validCubes.RemoveAt(randomIndex);
-        }
+        canSpawnUnit = false;
 
         ResetHighlightedCubes();
+    }
+
+    public void EnableUnitSpawn()
+    {
+        canSpawnUnit = true;
     }
 }
