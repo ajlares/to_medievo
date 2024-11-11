@@ -6,11 +6,16 @@ public class CloseObjects : MonoBehaviour
     [SerializeField] List<GameObject> enemiesClose;
     [SerializeField] List<GameObject> allyClose;
     [SerializeField] List<GameObject> obstaclesClose;
-    [SerializeField] List<GameObject> placeEmptys;
+    [SerializeField] List<GameObject> metheoriteClose;
+    [SerializeField] List<int> placeEmptys;
     [SerializeField] EnemyStats ES;
 
     public void UpdateCLoseObjects()
     {
+        enemiesClose.Clear();
+        allyClose.Clear();
+        obstaclesClose.Clear();
+        metheoriteClose.Clear();
         sourthUpdate();
         northUpdate();
         eastUpdate();
@@ -27,10 +32,26 @@ public class CloseObjects : MonoBehaviour
         int y = ES.PoY;
         for(int i =0; i<ES.actionDistance;i++)
         {
-            Debug.Log(((y-1)*10)+x);
-            if(GameManager.instance.tilemap[((y-1)*10)+x].gameObject.GetComponent<BoxController>().IsEmpty)
+            int cubeSelect = ((y-(i+1))*10)+x;
+            if(!GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().IsEmpty)
             {
-                Debug.Log( ((y-1)*10)+x + "is empty");
+                GameObject tempCube = GameManager.instance.tilemap[cubeSelect];
+                if(tempCube.gameObject.GetComponent<BoxController>().UnitHere.CompareTag("blue"))
+                {
+                    enemiesClose.Add(tempCube.gameObject.GetComponent<BoxController>().UnitHere);
+                }
+                if(tempCube.gameObject.GetComponent<BoxController>().UnitHere.CompareTag("Red"))
+                {
+                    allyClose.Add(tempCube.gameObject.GetComponent<BoxController>().UnitHere);
+                }
+                if(tempCube.gameObject.GetComponent<BoxController>().UnitHere.CompareTag("Obstacle"))
+                {
+                    obstaclesClose.Add(tempCube.gameObject.GetComponent<BoxController>().UnitHere);
+                }
+                if(tempCube.gameObject.GetComponent<BoxController>().UnitHere.CompareTag("meteriorite"))
+                {
+                    metheoriteClose.Add(tempCube.gameObject.GetComponent<BoxController>().UnitHere);
+                }
             }
         }
     }

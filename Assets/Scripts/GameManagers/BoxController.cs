@@ -47,8 +47,9 @@ public class BoxController : MonoBehaviour
         if(isEmpty)
         {
             Vector3 temporalvector =  new Vector3 (transform.position.x,transform.position.y+.5f,transform.position.z);
-            Instantiate(obstacle, temporalvector,quaternion.identity);
-            isEmpty = false;
+            GameObject tempobstacle = obstacle;
+            Instantiate(tempobstacle, temporalvector,quaternion.identity);
+            saveObject(tempobstacle);
         }
     }
     public void CastleCreate(GameObject castle)
