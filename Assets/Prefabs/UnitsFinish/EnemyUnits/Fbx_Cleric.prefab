@@ -119,6 +119,7 @@ MonoBehaviour:
   health: 0
   damage: 0
   actionDistance: 2
+  moveDistance: 1
 --- !u!114 &2266713633501831798
 MonoBehaviour:
   m_ObjectHideFlags: 0

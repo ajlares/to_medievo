@@ -47,12 +47,16 @@ public class IAGeneralManager : MonoBehaviour
         {
             rw = Random.Range(7,10);
             rh = Random.Range(7,10);
+            Debug.Log("rw = " + rw + "rh = " + rh);
             rw *= 10;
+            Debug.Log(rw+rh);
             tempCube = GameManager.instance.getCube(rw+rh);
             if(tempCube.GetComponent<BoxController>().IsEmpty)
             {   
                 int tempint = Random.Range(0,4);
                 tempunit = EnemyCastle.instance.units[tempint]; 
+                tempunit.GetComponent<EnemyStats>().PoX = rw/10;
+                tempunit.GetComponent<EnemyStats>().PoY = rh;
                 Vector3 newSpawn = new Vector3 (tempCube.transform.position.x, tempCube.transform.position.y + .5f, tempCube.transform.position.z);
                 Instantiate(tempunit,newSpawn,Quaternion.identity);
                 tempCube.GetComponent<BoxController>().saveObject(tempunit);

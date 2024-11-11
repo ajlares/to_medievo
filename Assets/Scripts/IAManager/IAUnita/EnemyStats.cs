@@ -6,6 +6,9 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private int damage;
     [SerializeField] public int actionDistance;
+    [SerializeField] public int moveDistance;
+    [SerializeField] private  int poX;
+    [SerializeField] private int poY;
 
     #region geterysetters
     int Health
@@ -25,6 +28,28 @@ public class EnemyStats : MonoBehaviour
         get
         {
             return damage;
+        }
+    }
+    public int PoX
+    {
+        get
+        {
+            return poX;
+        }
+        set
+        {
+            poX = value;
+        }
+    }
+    public int PoY
+    {
+        get
+        {
+            return poY;
+        }
+        set
+        {
+            poY = value;
         }
     }
     #endregion
