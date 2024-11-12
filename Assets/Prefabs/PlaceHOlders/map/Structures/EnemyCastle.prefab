@@ -117,6 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2625749700195855797}
   - component: {fileID: 5744450385170078723}
+  - component: {fileID: 8204716190969701713}
   m_Layer: 0
   m_Name: EnemyCastle
   m_TagString: Obstacle
@@ -160,3 +161,16 @@ MonoBehaviour:
   - {fileID: 5555488080654463714, guid: cc68bf408dc30c24f81c5021caae5f21, type: 3}
   maxLife: 10
   life: 10
+--- !u!114 &8204716190969701713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3745435236885617256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3b1cb59f9d26d40b7e371681a13d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iD: 6

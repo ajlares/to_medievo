@@ -285,6 +285,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2890490919746706035, guid: 8f83dc7e58ebeb742bef0081f57eec56, type: 3}
+      propertyPath: stone
+      value: 
+      objectReference: {fileID: 8845300650621463369, guid: ae0a048767b936a498efb470d3dcbb14, type: 3}
     - target: {fileID: 3552712019139864658, guid: 8f83dc7e58ebeb742bef0081f57eec56, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -328,6 +332,10 @@ PrefabInstance:
     - target: {fileID: 7155525684056528039, guid: 8f83dc7e58ebeb742bef0081f57eec56, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046817961670008098, guid: 8f83dc7e58ebeb742bef0081f57eec56, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -57,7 +57,7 @@ public class BoxController : MonoBehaviour
         //spawnea un castillo
         Vector3 temporalvector =  new Vector3 (transform.position.x,transform.position.y+.5f,transform.position.z);
         Instantiate(castle,  temporalvector,quaternion.identity);
-        isEmpty = false;
+        saveObject(castle);
     }
     public void saveObject(GameObject ObjectToSave)
     {

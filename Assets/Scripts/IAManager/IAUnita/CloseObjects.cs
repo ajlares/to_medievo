@@ -9,47 +9,50 @@ public class CloseObjects : MonoBehaviour
     private void Start() 
     {
         results = new List<Vector2>();
-        Debug.Log("Tamaño de lista inicial: " + results.Count);
     }
     public void UpdateCLoseObjects()
     {
         results.Clear();
-        sourthUpdate();
-        northUpdate();
-        eastUpdate();
-        weastUpdate();
+        searchObjects();
     }
-    private void sourthUpdate()
+    private void searchObjects()
     {
-        Debug.Log("Tamaño de lista: " + results.Count);
         int x = ES.PoX;
         int y = ES.PoY;
+        int cubeSelect;
         for(int i = 0; i<ES.actionDistance;i++)
-        {
-            int cubeSelect = ((y-(i+1))*10)+x;
-            if(!GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().IsEmpty)
+        {   
+            // sorth seearch
+            if((y - 1) >= 0)
             {
-                int indexInt = GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().UnitHere.GetComponent<IAID>().ID;
-                Debug.Log(cubeSelect + " " + " " + indexInt);
-                addlist(new Vector2(cubeSelect, indexInt));
-                Debug.Log(results[0]);
-                // Debug.Log(results[1]);
+                cubeSelect = ((y-(i+1))*10)+x;
+                Debug.Log("cubeselect" + cubeSelect);
+                if(!GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().IsEmpty)
+                {
+                    int indexInt = GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().UnitHere.GetComponent<IAID>().ID;
+                    addlist(new Vector2(cubeSelect, indexInt));
+                    cubeSelect =0;
+                }
+            }
+            // north search
+            if((y + 1) <= 9)
+            {
+                cubeSelect = (( y + i + 1 ) * 10 ) + x;
+                Debug.Log("cubeselect" + cubeSelect);
+                if(!GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().IsEmpty)
+                {
+                    int indexInt = GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().UnitHere.GetComponent<IAID>().ID;
+                    addlist(new Vector2(cubeSelect, indexInt));
+                    cubeSelect = 0;
+                }
             }
         }
-        Debug.Log("Tamaño de lista final: " + results.Count);
-    }
-    private void northUpdate()
-    {
-        
-    }
-    private void eastUpdate()
-    {
-        
-    }
-    private void weastUpdate()
-    {
-        
-    }
+
+        for(int i =0; i < results.Count;i++)
+        {
+            Debug.Log(results[i]);
+        }
+    }   
     private void addlist(Vector2 _vector)
     {
         results.Add(_vector);
