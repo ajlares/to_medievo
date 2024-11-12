@@ -20,13 +20,13 @@ public class CloseObjects : MonoBehaviour
         int x = ES.PoX;
         int y = ES.PoY;
         int cubeSelect;
-        for(int i = 0; i<ES.actionDistance;i++)
+        for(int i = 1; i<ES.actionDistance + 1;i++)
         {   
             // sorth seearch
-            if((y - 1) >= 0)
+            if((y - i) > -1)
             {
-                cubeSelect = ((y-(i+1))*10)+x;
-                Debug.Log("cubeselect" + cubeSelect);
+                Debug.Log("abajo");
+                cubeSelect = (( y - i )*10)+x;
                 if(!GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().IsEmpty)
                 {
                     int indexInt = GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().UnitHere.GetComponent<IAID>().ID;
@@ -35,17 +35,28 @@ public class CloseObjects : MonoBehaviour
                 }
             }
             // north search
-            if((y + 1) <= 9)
-            {
-                cubeSelect = (( y + i + 1 ) * 10 ) + x;
-                Debug.Log("cubeselect" + cubeSelect);
+            if((y + i) < 10 )
+            {   
+                Debug.Log("arriba");
+                cubeSelect = (( y + i ) * 10 ) + x;
                 if(!GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().IsEmpty)
                 {
                     int indexInt = GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().UnitHere.GetComponent<IAID>().ID;
                     addlist(new Vector2(cubeSelect, indexInt));
                     cubeSelect = 0;
-                }
+                }     
             }
+            // weast search
+            if(x - i > -1)
+            {
+                Debug.Log("izquierda");
+            }
+            // east search
+            if(x + i < 10)
+            {
+                Debug.Log("derecha");
+            }
+
         }
 
         for(int i =0; i < results.Count;i++)
