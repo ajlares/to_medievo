@@ -50,11 +50,25 @@ public class CloseObjects : MonoBehaviour
             if(x - i > -1)
             {
                 Debug.Log("izquierda");
+                cubeSelect = (y*10) + x-i;
+                if(!GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().IsEmpty)
+                {
+                    int indexInt = GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().UnitHere.GetComponent<IAID>().ID;
+                    addlist(new Vector2(cubeSelect, indexInt));
+                    cubeSelect = 0;
+                }   
             }
             // east search
             if(x + i < 10)
             {
                 Debug.Log("derecha");
+                cubeSelect = (y*10) + x+i;
+                if(!GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().IsEmpty)
+                {
+                    int indexInt = GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().UnitHere.GetComponent<IAID>().ID;
+                    addlist(new Vector2(cubeSelect, indexInt));
+                    cubeSelect = 0;
+                }  
             }
 
         }
