@@ -21,6 +21,7 @@ public class EnemyStats : MonoBehaviour
         set
         {
             health += value;
+            // reproduce hit
             death();
         }
     }
@@ -76,12 +77,16 @@ public class EnemyStats : MonoBehaviour
 
     void death()
     {
+        if(health < 1)
+        {
+           //destroy();
+        }
 
     }
     
-    public void destroy()
-    {
-
-    }
+    //private  IEnumerator death()
+    //{
+    //    yield return null;
+    //}
     
 }
