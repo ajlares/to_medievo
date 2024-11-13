@@ -129,7 +129,7 @@ public class UnitAttackState : UnitBaseState
                     if (objectDetector != null && objectDetector.IsEnemy)
                     {
                         GameObject enemy = objectDetector.DetectedEnemy;
-                        EnemyBetaStats enemyStats = enemy.GetComponent<EnemyBetaStats>();
+                        EnemyStats enemyStats = enemy.GetComponent<EnemyStats>();
 
                         if (enemyStats != null)
                         {
@@ -148,7 +148,7 @@ public class UnitAttackState : UnitBaseState
                         }
                         else
                         {
-                            Debug.LogWarning("No se encontró el componente EnemyBetaStats en el enemigo.");
+                            Debug.LogWarning("No se encontró el componente EnemyStats en el enemigo.");
                         }
                     }
                     else
@@ -191,19 +191,14 @@ public class UnitAttackState : UnitBaseState
 
         unit.transform.rotation = originalRotation;
     }
-    private System.Collections.IEnumerator WaitForAttackAnimation(UnitStateManager unit, EnemyBetaStats enemyStats, int attackPower, float waitTime)
+    private System.Collections.IEnumerator WaitForAttackAnimation(UnitStateManager unit, EnemyStats enemyStats, int attackPower, float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
 
-        enemyStats.TakeDamage(attackPower);
+        enemyStats.Health -= attackPower;
         Debug.Log($"Enemigo atacado. Daño aplicado: {attackPower}");
 
-        unit.canAttack = false;
-
         unit.StartCoroutine(RotateBackToOriginal(unit));
-
-        UnitBaseState newState = new UnitSelectedState();
-        unit.ChangeState(newState);
     }
 
     private System.Collections.IEnumerator WaitAndChangeStateAfterHealing(UnitStateManager unit)

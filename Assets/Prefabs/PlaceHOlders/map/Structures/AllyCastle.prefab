@@ -124,6 +124,7 @@ MonoBehaviour:
   numberOfUnitsToSpawn: 1
   highlightMaterial: {fileID: 2100000, guid: 8ae0f444df7e0a643a0c3859fefeac28, type: 2}
   canSpawnUnit: 1
+  OpenDoor: {fileID: 8300000, guid: 7d2d43d20d1ab4d4f8e2140bcba5f833, type: 3}
 --- !u!1 &3745435236885617256
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +183,7 @@ MonoBehaviour:
   - {fileID: 5555488080654463714, guid: d66a1bf1103d6244ba0b5de880fd062d, type: 3}
   maxLife: 10
   life: 10
+  createUnit: {fileID: 8300000, guid: b84695fece2c97547821f0bccbdb78df, type: 3}
 --- !u!114 &3475410109585858808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +321,7 @@ MonoBehaviour:
   numberOfUnitsToSpawn: 1
   highlightMaterial: {fileID: 0}
   canSpawnUnit: 1
+  OpenDoor: {fileID: 0}
 --- !u!1 &4350054408960758216
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +446,7 @@ MonoBehaviour:
   numberOfUnitsToSpawn: 1
   highlightMaterial: {fileID: 0}
   canSpawnUnit: 1
+  OpenDoor: {fileID: 0}
 --- !u!1 &5620537400120909057
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +571,7 @@ MonoBehaviour:
   numberOfUnitsToSpawn: 1
   highlightMaterial: {fileID: 0}
   canSpawnUnit: 1
+  OpenDoor: {fileID: 0}
 --- !u!1 &8314737940292004487
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,3 +696,4 @@ MonoBehaviour:
   numberOfUnitsToSpawn: 1
   highlightMaterial: {fileID: 0}
   canSpawnUnit: 1
+  OpenDoor: {fileID: 0}
