@@ -13,7 +13,6 @@ public class decisionController : MonoBehaviour
     {
         CO = GetComponent<CloseObjects>();
         ES = GetComponent<EnemyStats>();    
-        canmove = false;
     }
 
     private void Update() 
@@ -22,7 +21,7 @@ public class decisionController : MonoBehaviour
         {
             Debug.Log("move");
             float step = ES.Speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, cubeplace.position, step);
+             transform.position = Vector3.MoveTowards(transform.position, cubeplace.position, step);
         }
     }
 
