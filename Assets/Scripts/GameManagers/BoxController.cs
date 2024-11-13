@@ -5,7 +5,7 @@ public class BoxController : MonoBehaviour
 {
     [SerializeField] private bool isEmpty;
     [SerializeField] private GameObject obstacle;
-    [SerializeField] int managerListValeu;
+    [SerializeField] public int managerListValeu;
     [SerializeField] int tipeBlock;
     [SerializeField] GameObject objectHere;
     [SerializeField] public GameObject mapWayPoint;

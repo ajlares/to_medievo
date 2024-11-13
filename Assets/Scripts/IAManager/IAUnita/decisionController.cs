@@ -4,14 +4,31 @@ using UnityEngine;
 public class decisionController : MonoBehaviour
 {
     [SerializeField] private CloseObjects CO;
+    [SerializeField] private EnemyStats ES;
     [SerializeField] private List<int> heights;
+    [SerializeField] private Vector3 cubeplace;
+    [SerializeField] private bool canmove = false;
+
     private void Start() 
     {
-        CO = GetComponent<CloseObjects>();    
+        CO = GetComponent<CloseObjects>();
+        ES = GetComponent<EnemyStats>();    
+        canmove = false;
+    }
+
+    private void Update() 
+    {
+        if(canmove)
+        {
+            Debug.Log("move");
+            float step = ES.Speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, cubeplace, step);
+        }
     }
 
     public void takeDesicion()
     {
+        canmove = false;
         if(CO.results.Count != 0)
         {
             for(int i = 0;i < heights.Count;i++)
@@ -48,11 +65,11 @@ public class decisionController : MonoBehaviour
                     }
                 }
             }
-            move();
+            randomMove();
         }
         else
         {
-            move();
+            randomMove();
         }
     }
     private void attack(int cube)
@@ -81,8 +98,51 @@ public class decisionController : MonoBehaviour
     {
         // destroy obstacle
     }   
-    private void move()
+    private void randomMove()
     {
-        // move to random cube if all are clean
+        Vector2 vectorPos = new Vector2(ES.PoX,ES.PoY);
+        List<GameObject> emptys = new List<GameObject>();
+        int cubeSelect;
+        emptys.Clear();
+        if(vectorPos.x < 10)
+        {
+            cubeSelect = (int)((vectorPos.y * 10) + vectorPos.x +1);
+            if (GameManager.instance.tilemap[cubeSelect].GetComponent<BoxController>().IsEmpty)
+            {
+                emptys.Add(GameManager.instance.tilemap[cubeSelect]);
+            }
+        }
+        if(vectorPos.x > -1)
+        {
+            cubeSelect = (int)((vectorPos.y * 10) + vectorPos.x -1);
+            if (GameManager.instance.tilemap[cubeSelect].GetComponent<BoxController>().IsEmpty)
+            {
+                emptys.Add(GameManager.instance.tilemap[cubeSelect]);
+            }
+        }
+        if(vectorPos.y < 10&& vectorPos.y >0)
+        {
+            cubeSelect = (int)(((vectorPos.y-1)*10)+vectorPos.x);
+            if (GameManager.instance.tilemap[cubeSelect].GetComponent<BoxController>().IsEmpty)
+            {
+                emptys.Add(GameManager.instance.tilemap[cubeSelect]);
+            }
+        }
+        if(vectorPos.y > -1 && vectorPos.y <9)
+        {
+            cubeSelect = (int)(((vectorPos.y+1)*10)+vectorPos.x);
+            if (GameManager.instance.tilemap[cubeSelect].GetComponent<BoxController>().IsEmpty)
+            {
+                emptys.Add(GameManager.instance.tilemap[cubeSelect]);
+            }
+        }
+
+        if(emptys.Count > 0)
+        {
+            int placeInt = Random.Range(0,emptys.Count);
+            cubeplace = new Vector3(emptys[placeInt].transform.position.x,1,emptys[placeInt].transform.position.z);
+            canmove = true;
+            
+        }
     }
 }

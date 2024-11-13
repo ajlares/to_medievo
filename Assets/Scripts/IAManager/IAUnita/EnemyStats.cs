@@ -9,6 +9,7 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] public int moveDistance;
     [SerializeField] private  int poX;
     [SerializeField] private int poY;
+    [SerializeField] private float speed;
 
     #region geterysetters
     int Health
@@ -52,6 +53,19 @@ public class EnemyStats : MonoBehaviour
             poY = value;
         }
     }
+
+    public float Speed
+    {
+        get
+        {
+            return speed;
+        }
+        set
+        {
+            speed = value;
+        }
+    }
+
     #endregion
 
     private void Start()
@@ -59,6 +73,7 @@ public class EnemyStats : MonoBehaviour
         health = maxHealth;
         transform.Rotate(new Vector3(0, 180, 0));
     }
+
     void death()
     {
 

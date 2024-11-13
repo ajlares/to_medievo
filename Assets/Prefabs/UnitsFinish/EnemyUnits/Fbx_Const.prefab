@@ -118,6 +118,7 @@ MonoBehaviour:
   moveDistance: 2
   poX: 0
   poY: 0
+  speed: 0
 --- !u!114 &2469791651926170899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +209,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CO: {fileID: 2469791651926170899}
+  ES: {fileID: 59854811683803755}
   heights: 03000000
+  cubeplace: {x: 0, y: 0, z: 0}
+  canmove: 0
 --- !u!114 &7028532463028764142
 MonoBehaviour:
   m_ObjectHideFlags: 0
