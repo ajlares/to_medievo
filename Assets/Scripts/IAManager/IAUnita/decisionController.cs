@@ -15,16 +15,6 @@ public class decisionController : MonoBehaviour
         ES = GetComponent<EnemyStats>();    
     }
 
-    private void Update() 
-    {
-        if(canmove)
-        {
-            Debug.Log("move");
-            float step = ES.Speed * Time.deltaTime;
-             transform.position = Vector3.MoveTowards(transform.position, cubeplace.position, step);
-        }
-    }
-
     public void takeDesicion()
     {
         canmove = false;
@@ -139,9 +129,10 @@ public class decisionController : MonoBehaviour
         if(emptys.Count > 0)
         {
             int placeInt = Random.Range(0,emptys.Count);
-            Debug.Log(emptys[placeInt]);
-            cubeplace = GameManager.instance.tilemap[placeInt].GetComponent<BoxController>().setPoint.transform;
-            canmove = true;
+            GetComponent<MoveUnit>().choiceTarget(placeInt);
+            //Debug.Log(emptys[placeInt]);
+            //cubeplace = GameManager.instance.tilemap[placeInt].GetComponent<BoxController>().setPoint.transform;
+            //canmove = true;
         }
     }
 }
