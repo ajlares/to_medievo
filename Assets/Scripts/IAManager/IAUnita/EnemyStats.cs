@@ -12,7 +12,7 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private float speed;
 
     #region geterysetters
-    int Health
+    public int Health
     {
         get
         {
@@ -79,7 +79,7 @@ public class EnemyStats : MonoBehaviour
     {
         if(health < 1)
         {
-           //destroy();
+           
         }
 
     }
