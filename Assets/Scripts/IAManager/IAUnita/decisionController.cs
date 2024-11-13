@@ -23,58 +23,66 @@ public class decisionController : MonoBehaviour
                         if(heights[i] == 2)
                         {
                             attack((int)CO.results[j][0]);
-                            Debug.Log("attack enemy");
                             break;
                         }
                         else if(heights[i] == 1)
                         {
                             attack((int)CO.results[j][0]);
-                            Debug.Log("attack ally");
                             break;
                         }
                         else if(heights[i] == 3)
                         {
                             destroy((int)CO.results[j][0]);
-                            Debug.Log("destroy obstacle");
                             break;
                         }
                         else if(heights[i] == 5)
                         {
                             attackStructure((int)CO.results[j][0]);
-                            Debug.Log("attack enemy castle");
                             break;
                         }
                         else if(heights[i] == 7)
                         {
                             attackStructure((int)CO.results[j][0]);
-                            Debug.Log("attack enemy torret");
                             break;
                         }
                     }
                 }
             }
             move();
-            Debug.Log("move 2");
         }
         else
         {
             move();
-                    Debug.Log("move 1");
         }
     }
     private void attack(int cube)
     {
-    
+        if(GameManager.instance.tilemap[cube].GetComponent<BoxController>().UnitHere.CompareTag("Red"))
+        {
+            
+        }
+        if(GameManager.instance.tilemap[cube].GetComponent<BoxController>().UnitHere.CompareTag("blue"))
+        {
+            
+        }
     }
     private void attackStructure(int cube)
     {
+        if(GameManager.instance.tilemap[cube].GetComponent<BoxController>().UnitHere.CompareTag("BCastle"))
+        {
 
+        }
+        if(GameManager.instance.tilemap[cube].GetComponent<BoxController>().UnitHere.CompareTag("BTorret"))
+        {
+
+        }
     }
     private void destroy(int cube)
     {
-
-    }
+        // destroy obstacle
+    }   
     private void move()
     {
+        // move to random cube if all are clean
     }
 }
