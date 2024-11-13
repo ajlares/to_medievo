@@ -9,6 +9,7 @@ public class BoxController : MonoBehaviour
     [SerializeField] int tipeBlock;
     [SerializeField] GameObject objectHere;
     [SerializeField] public GameObject mapWayPoint;
+    [SerializeField] public GameObject setPoint;
 
     public int ManagerListValeu
     {

@@ -6,7 +6,7 @@ public class decisionController : MonoBehaviour
     [SerializeField] private CloseObjects CO;
     [SerializeField] private EnemyStats ES;
     [SerializeField] private List<int> heights;
-    [SerializeField] private Vector3 cubeplace;
+    [SerializeField] private Transform cubeplace;
     [SerializeField] private bool canmove = false;
 
     private void Start() 
@@ -22,7 +22,7 @@ public class decisionController : MonoBehaviour
         {
             Debug.Log("move");
             float step = ES.Speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, cubeplace, step);
+            transform.position = Vector3.MoveTowards(transform.position, cubeplace.position, step);
         }
     }
 
@@ -101,7 +101,7 @@ public class decisionController : MonoBehaviour
     private void randomMove()
     {
         Vector2 vectorPos = new Vector2(ES.PoX,ES.PoY);
-        List<GameObject> emptys = new List<GameObject>();
+        List<int> emptys = new List<int>();
         int cubeSelect;
         emptys.Clear();
         if(vectorPos.x < 10)
@@ -109,7 +109,7 @@ public class decisionController : MonoBehaviour
             cubeSelect = (int)((vectorPos.y * 10) + vectorPos.x +1);
             if (GameManager.instance.tilemap[cubeSelect].GetComponent<BoxController>().IsEmpty)
             {
-                emptys.Add(GameManager.instance.tilemap[cubeSelect]);
+                emptys.Add(cubeSelect);
             }
         }
         if(vectorPos.x > -1)
@@ -117,7 +117,7 @@ public class decisionController : MonoBehaviour
             cubeSelect = (int)((vectorPos.y * 10) + vectorPos.x -1);
             if (GameManager.instance.tilemap[cubeSelect].GetComponent<BoxController>().IsEmpty)
             {
-                emptys.Add(GameManager.instance.tilemap[cubeSelect]);
+                emptys.Add(cubeSelect);
             }
         }
         if(vectorPos.y < 10&& vectorPos.y >0)
@@ -125,7 +125,7 @@ public class decisionController : MonoBehaviour
             cubeSelect = (int)(((vectorPos.y-1)*10)+vectorPos.x);
             if (GameManager.instance.tilemap[cubeSelect].GetComponent<BoxController>().IsEmpty)
             {
-                emptys.Add(GameManager.instance.tilemap[cubeSelect]);
+                emptys.Add(cubeSelect);
             }
         }
         if(vectorPos.y > -1 && vectorPos.y <9)
@@ -133,16 +133,16 @@ public class decisionController : MonoBehaviour
             cubeSelect = (int)(((vectorPos.y+1)*10)+vectorPos.x);
             if (GameManager.instance.tilemap[cubeSelect].GetComponent<BoxController>().IsEmpty)
             {
-                emptys.Add(GameManager.instance.tilemap[cubeSelect]);
+                emptys.Add(cubeSelect);
             }
         }
 
         if(emptys.Count > 0)
         {
             int placeInt = Random.Range(0,emptys.Count);
-            cubeplace = new Vector3(emptys[placeInt].transform.position.x,1,emptys[placeInt].transform.position.z);
+            Debug.Log(emptys[placeInt]);
+            cubeplace = GameManager.instance.tilemap[placeInt].GetComponent<BoxController>().setPoint.transform;
             canmove = true;
-            
         }
     }
 }
