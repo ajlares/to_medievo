@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
@@ -79,14 +80,14 @@ public class EnemyStats : MonoBehaviour
     {
         if(health < 1)
         {
-           
+            StartCoroutine(kill());
         }
 
     }
     
-    //private  IEnumerator death()
-    //{
-    //    yield return null;
-    //}
+    private  IEnumerator kill()
+    {
+        yield return null;
+    }
     
 }
