@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e05ad744ab4bbc24d85aba66bee7a6ba
+guid: cdf9244ca43d13a4c8a10b585369e9a1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Mat_Meteo
-    second: {fileID: 2100000, guid: d7e5af08240f1e841b2128e43ef2af0a, type: 2}
+      name: Mat_Tower
+    second: {fileID: 2100000, guid: 34e396c28c29b1d43b4b05d9839d2a2b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
