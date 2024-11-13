@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     {
         turnCount = 1;
         MapManager.instance.worldGenerate();   
+        allyUnits = new List<GameObject>();
+        enemyUnits = new List<GameObject>();
+        tilemap = new List<GameObject>();
     }
     private void Update() 
     {

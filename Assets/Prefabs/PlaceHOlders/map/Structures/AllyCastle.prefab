@@ -123,6 +123,7 @@ MonoBehaviour:
   spawnRange: 4
   numberOfUnitsToSpawn: 1
   highlightMaterial: {fileID: 2100000, guid: 8ae0f444df7e0a643a0c3859fefeac28, type: 2}
+  canSpawnUnit: 1
 --- !u!1 &3745435236885617256
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2625749700195855797}
   - component: {fileID: -6468671262156899482}
+  - component: {fileID: 3475410109585858808}
   m_Layer: 0
   m_Name: AllyCastle
   m_TagString: Obstacle
@@ -180,6 +182,19 @@ MonoBehaviour:
   - {fileID: 5555488080654463714, guid: d66a1bf1103d6244ba0b5de880fd062d, type: 3}
   maxLife: 10
   life: 10
+--- !u!114 &3475410109585858808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3745435236885617256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3b1cb59f9d26d40b7e371681a13d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iD: 5
 --- !u!1 &3869597283188199470
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +318,7 @@ MonoBehaviour:
   spawnRange: 3
   numberOfUnitsToSpawn: 1
   highlightMaterial: {fileID: 0}
+  canSpawnUnit: 1
 --- !u!1 &4350054408960758216
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +442,7 @@ MonoBehaviour:
   spawnRange: 3
   numberOfUnitsToSpawn: 1
   highlightMaterial: {fileID: 0}
+  canSpawnUnit: 1
 --- !u!1 &5620537400120909057
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +566,7 @@ MonoBehaviour:
   spawnRange: 3
   numberOfUnitsToSpawn: 1
   highlightMaterial: {fileID: 0}
+  canSpawnUnit: 1
 --- !u!1 &8314737940292004487
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,3 +690,4 @@ MonoBehaviour:
   spawnRange: 3
   numberOfUnitsToSpawn: 1
   highlightMaterial: {fileID: 0}
+  canSpawnUnit: 1
