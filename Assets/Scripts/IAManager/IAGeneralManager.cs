@@ -68,7 +68,7 @@ public class IAGeneralManager : MonoBehaviour
         cantMoveUnit = false;
         for(int i =0;i < GameManager.instance.enemyUnits.Count;i++)
         {
-            
+            GameManager.instance.enemyUnits[i].GetComponent<decisionController>().takeDesicion();
         }
     }
     public void Newturn()
