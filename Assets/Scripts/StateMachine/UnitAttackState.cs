@@ -162,6 +162,13 @@ public class UnitAttackState : UnitBaseState
                 }
             }
         }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            unit.Anim.SetInteger("C", 2);
+            unit.StartCoroutine(WaitForAnimation(unit, .7f));
+            UnitBaseState newState = new UnitSelectedState();
+            unit.ChangeState(newState);
+        }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
             UnitBaseState newState = new UnitSelectedState();
@@ -199,6 +206,11 @@ public class UnitAttackState : UnitBaseState
         Debug.Log($"Enemigo atacado. Daño aplicado: {attackPower}");
 
         unit.StartCoroutine(RotateBackToOriginal(unit));
+    }
+
+    private System.Collections.IEnumerator WaitForAnimation(UnitStateManager unit, float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
     }
 
     private System.Collections.IEnumerator WaitAndChangeStateAfterHealing(UnitStateManager unit)
