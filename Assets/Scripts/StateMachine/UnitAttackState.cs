@@ -129,7 +129,7 @@ public class UnitAttackState : UnitBaseState
                     if (objectDetector != null && objectDetector.IsEnemy)
                     {
                         GameObject enemy = objectDetector.DetectedEnemy;
-                        EnemyBetaStats enemyStats = enemy.GetComponent<EnemyBetaStats>();
+                        EnemyStats enemyStats = enemy.GetComponent<EnemyStats>();
 
                         if (enemyStats != null)
                         {
@@ -148,7 +148,7 @@ public class UnitAttackState : UnitBaseState
                         }
                         else
                         {
-                            Debug.LogWarning("No se encontró el componente EnemyBetaStats en el enemigo.");
+                            Debug.LogWarning("No se encontró el componente EnemyStats en el enemigo.");
                         }
                     }
                     else
@@ -161,6 +161,13 @@ public class UnitAttackState : UnitBaseState
                     Debug.Log("Fuera de rango.");
                 }
             }
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            unit.Anim.SetInteger("C", 2);
+            unit.StartCoroutine(WaitForAnimation(unit, .7f));
+            UnitBaseState newState = new UnitSelectedState();
+            unit.ChangeState(newState);
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -191,19 +198,19 @@ public class UnitAttackState : UnitBaseState
 
         unit.transform.rotation = originalRotation;
     }
-    private System.Collections.IEnumerator WaitForAttackAnimation(UnitStateManager unit, EnemyBetaStats enemyStats, int attackPower, float waitTime)
+    private System.Collections.IEnumerator WaitForAttackAnimation(UnitStateManager unit, EnemyStats enemyStats, int attackPower, float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
 
-        enemyStats.TakeDamage(attackPower);
+        enemyStats.Health -= attackPower;
         Debug.Log($"Enemigo atacado. Daño aplicado: {attackPower}");
 
-        unit.canAttack = false;
-
         unit.StartCoroutine(RotateBackToOriginal(unit));
+    }
 
-        UnitBaseState newState = new UnitSelectedState();
-        unit.ChangeState(newState);
+    private System.Collections.IEnumerator WaitForAnimation(UnitStateManager unit, float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
     }
 
     private System.Collections.IEnumerator WaitAndChangeStateAfterHealing(UnitStateManager unit)

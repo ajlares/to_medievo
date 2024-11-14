@@ -14,6 +14,7 @@ public abstract class CharactersBase : MonoBehaviour
     public int defenseBonus;
 
     public Animator anim;
+    public Sprite sprite;
 
     protected UnitStateManager stateManager;
 

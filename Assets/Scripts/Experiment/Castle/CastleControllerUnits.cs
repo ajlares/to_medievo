@@ -15,6 +15,7 @@ public class CastleControllerUnits : MonoBehaviour
     public bool canSpawnUnit = true;
 
     public static CastleControllerUnits instance;
+    public AudioClip OpenDoor;
     private void Awake() 
     {
         if(instance == null)
@@ -35,6 +36,7 @@ public class CastleControllerUnits : MonoBehaviour
     private void OnMouseEnter()
     {
         HighlightCubesInRange();
+        SfxController.instance.PlaySound(OpenDoor);
     }
 
     private void OnMouseExit()
