@@ -11,6 +11,8 @@ TagManager:
   - Red
   - meteriorite
   - vfx
+  - BTorret
+  - BCastle
   layers:
   - Default
   - TransparentFX
@@ -18,9 +20,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - obstacle
+  - blue
+  - red
   - 
   - 
   - 

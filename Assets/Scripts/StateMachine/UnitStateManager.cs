@@ -19,11 +19,17 @@ public class UnitStateManager : MonoBehaviour
 
     public GameObject tower;
 
+    private Animator anim;  
+    public Animator Anim => anim;
+
     void Start()
     {
         cameraController = FindObjectOfType<CameraController>();
         currentState = IdleState;
+        anim = GetComponent<Animator>();
+
         Renderer renderer = this.GetComponent<Renderer>();
+
         if (renderer != null)
         {
             originalMaterial = renderer.material;

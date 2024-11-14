@@ -7,6 +7,8 @@ public class AllyCastle : MonoBehaviour
     [SerializeField] private List<GameObject> units;
     [SerializeField] private int maxLife;
     [SerializeField] private int life;
+
+    public AudioClip createUnit;
     public int UnitsToUse
     {
         get
@@ -44,8 +46,9 @@ public class AllyCastle : MonoBehaviour
         int randomUnit = Random.Range(0, units.Count);
 
         Vector3 spawnPosition = spaw.transform.position;
-        spawnPosition.y = 1.5f;
+        spawnPosition.y = 1f;
         
         Instantiate(units[randomUnit], spawnPosition, Quaternion.identity);
+        SfxController.instance.PlaySound(createUnit);
     }
 }

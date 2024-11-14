@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
@@ -6,9 +7,13 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private int damage;
     [SerializeField] public int actionDistance;
+    [SerializeField] public int moveDistance;
+    [SerializeField] private  int poX;
+    [SerializeField] private int poY;
+    [SerializeField] private float speed;
 
     #region geterysetters
-    int Health
+    public int Health
     {
         get
         {
@@ -17,6 +22,7 @@ public class EnemyStats : MonoBehaviour
         set
         {
             health += value;
+            // reproduce hit
             death();
         }
     }
@@ -27,6 +33,41 @@ public class EnemyStats : MonoBehaviour
             return damage;
         }
     }
+    public int PoX
+    {
+        get
+        {
+            return poX;
+        }
+        set
+        {
+            poX = value;
+        }
+    }
+    public int PoY
+    {
+        get
+        {
+            return poY;
+        }
+        set
+        {
+            poY = value;
+        }
+    }
+
+    public float Speed
+    {
+        get
+        {
+            return speed;
+        }
+        set
+        {
+            speed = value;
+        }
+    }
+
     #endregion
 
     private void Start()
@@ -34,14 +75,19 @@ public class EnemyStats : MonoBehaviour
         health = maxHealth;
         transform.Rotate(new Vector3(0, 180, 0));
     }
+
     void death()
     {
+        if(health < 1)
+        {
+            StartCoroutine(kill());
+        }
 
     }
     
-    public void destroy()
+    private  IEnumerator kill()
     {
-
+        yield return null;
     }
-
+    
 }

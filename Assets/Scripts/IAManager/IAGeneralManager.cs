@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Data;
 using UnityEngine;
 public class IAGeneralManager : MonoBehaviour
 {
@@ -52,8 +51,9 @@ public class IAGeneralManager : MonoBehaviour
             if(tempCube.GetComponent<BoxController>().IsEmpty)
             {   
                 int tempint = Random.Range(0,4);
-                tempunit = EnemyCastle.instance.units[tempint];
-                tempunit.GetComponent<AIMoveUnit>().newPlace(rw/10,rh);
+                tempunit = EnemyCastle.instance.units[tempint]; 
+                tempunit.GetComponent<EnemyStats>().PoX = rh;
+                tempunit.GetComponent<EnemyStats>().PoY = rw/10;
                 Vector3 newSpawn = new Vector3 (tempCube.transform.position.x, tempCube.transform.position.y + .5f, tempCube.transform.position.z);
                 Instantiate(tempunit,newSpawn,Quaternion.identity);
                 tempCube.GetComponent<BoxController>().saveObject(tempunit);
@@ -68,7 +68,7 @@ public class IAGeneralManager : MonoBehaviour
         cantMoveUnit = false;
         for(int i =0;i < GameManager.instance.enemyUnits.Count;i++)
         {
-            GameManager.instance.enemyUnits[i].GetComponent<AIMoveUnit>().moveUnit();
+            GameManager.instance.enemyUnits[i].GetComponent<decisionController>().takeDesicion();
         }
     }
     public void Newturn()
@@ -76,10 +76,18 @@ public class IAGeneralManager : MonoBehaviour
         StartCoroutine(WaitTime());
         canSpawnUnit = true;
         cantMoveUnit = true;
+        UpdateEnemies();
     }
     IEnumerator WaitTime()
     {
         yield return new WaitForSeconds(2);
         yield return null;
+    }
+    private void UpdateEnemies()
+    {
+        for(int i =0;i < GameManager.instance.enemyUnits.Count;i++)
+        {
+            GameManager.instance.enemyUnits[i].GetComponent<CloseObjects>().UpdateCLoseObjects();
+        }
     }
 }
