@@ -11,6 +11,8 @@ TagManager:
   - Red
   - meteriorite
   - vfx
+  - BTorret
+  - BCastle
   layers:
   - Default
   - TransparentFX

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CloseObjects : MonoBehaviour
 {
-    [SerializeField] private List<Vector2> results;
+    [SerializeField] public List<Vector2> results;
     [SerializeField] EnemyStats ES;
 
     private void Start() 
@@ -25,7 +25,6 @@ public class CloseObjects : MonoBehaviour
             // sorth seearch
             if((y - i) > -1)
             {
-                Debug.Log("abajo");
                 cubeSelect = (( y - i )*10)+x;
                 if(!GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().IsEmpty)
                 {
@@ -37,7 +36,6 @@ public class CloseObjects : MonoBehaviour
             // north search
             if((y + i) < 10 )
             {   
-                Debug.Log("arriba");
                 cubeSelect = (( y + i ) * 10 ) + x;
                 if(!GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().IsEmpty)
                 {
@@ -49,7 +47,6 @@ public class CloseObjects : MonoBehaviour
             // weast search
             if(x - i > -1)
             {
-                Debug.Log("izquierda");
                 cubeSelect = (y*10) + x-i;
                 if(!GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().IsEmpty)
                 {
@@ -61,7 +58,6 @@ public class CloseObjects : MonoBehaviour
             // east search
             if(x + i < 10)
             {
-                Debug.Log("derecha");
                 cubeSelect = (y*10) + x+i;
                 if(!GameManager.instance.tilemap[cubeSelect].gameObject.GetComponent<BoxController>().IsEmpty)
                 {
@@ -71,11 +67,6 @@ public class CloseObjects : MonoBehaviour
                 }  
             }
 
-        }
-
-        for(int i =0; i < results.Count;i++)
-        {
-            Debug.Log(results[i]);
         }
     }   
     private void addlist(Vector2 _vector)
