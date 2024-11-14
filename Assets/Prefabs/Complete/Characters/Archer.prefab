@@ -554,6 +554,7 @@ MonoBehaviour:
   attackPower: 0
   defenseBonus: 0
   anim: {fileID: 4453425516949292138}
+  sprite: {fileID: 21300000, guid: 3c7b27caa17adff44a36241a45835331, type: 3}
 --- !u!4 &7722989727071182352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e4d7fdc4e4080f646b1e04c55e126fa4, type: 3}

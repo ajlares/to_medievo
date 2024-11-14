@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
             NextTurn();
         }
     }
-    private void NextTurn()
+    public void NextTurn()
     {
         Debug.Log("Next Turn");
         //setea todo para el siguiente turno
